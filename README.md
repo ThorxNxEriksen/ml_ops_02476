@@ -1,17 +1,17 @@
 # Quick Draw Sketch Classification: An MLOps Implementation
 ### Group
-S204618 - Thor Nørgaard Eriksen
+s204618 - Thor Nørgaard Eriksen
 
-S204606 - Liv Hyllinge
+s204606 - Liv Hyllinge
 
-S204621 - Kathe H. Schmidt 
+s204621 - Kathe H. Schmidt 
 
-S214983 - Søren Mondrup
+s214983 - Søren Mondrup
 
-S214659 - Clara Sofie Christiansen
+s214659 - Clara Sofie Christiansen
 
 ## Project Description
-This project aims to develop a comprehensive machine learning pipeline for the classification of hand-drawn sketches utilizing Google's Quick Draw Dataset. The primary objective is to construct an end-to-end MLOps infrastructure that encompasses data processing, model training, deployment, and monitoring while adhering to modern MLOps practices and principles.
+This project aims to develop a comprehensive machine learning pipeline for the classification of hand-drawn sketches utilizing Google's "Quick, Draw!" Dataset. The primary objective is to construct an end-to-end MLOps infrastructure that encompasses data processing, model training, deployment, and monitoring while adhering to modern MLOps practices and principles.
 
 ### Overall Project Goal
 The fundamental goal is to create a robust and scalable system capable of accurately classifying hand-drawn sketches across multiple categories. Beyond mere classification, this project seeks to implement a complete MLOps pipeline that demonstrates industry-standard practices in machine learning deployment. Key objectives include:
@@ -32,7 +32,7 @@ The project will primarily utilize PyTorch Image Models (TIMM) as its core frame
 * Performance Metrics: Integrating TIMM's evaluation tools with additional metrics from Torchmetrics for comprehensive model assessment
 
 ### Data
-The project will utilize the Google Quick Draw Dataset, a comprehensive collection of hand-drawn sketches comprising millions of samples across 345 categories. Our initial approach focuses on the rasterized version of the dataset, which provides 28x28 grayscale images. This decision allows us to concentrate on pure visual classification aspects while maintaining computational efficiency.
+The project will utilize the Google "Quick, Draw!" Dataset, a comprehensive collection of hand-drawn sketches comprising millions of samples across 345 categories. Our initial approach focuses on the rasterized version of the dataset, which provides 28x28 grayscale images. This decision allows us to concentrate on pure visual classification aspects while maintaining computational efficiency.
 Data processing will involve:
 
 * Initial focus on 10 selected categories, each containing approximately 50,000 samples
