@@ -1,4 +1,4 @@
-# quick_draw
+# Quick Draw Sketch Classification: An MLOps Implementation
 ### Group
 S204618 - Thor Nørgaard Eriksen
 
@@ -10,29 +10,45 @@ S214983 - Søren Mondrup
 
 S214659 - Clara Sofie Christiansen
 
-### Project Overview
-This project develops a machine learning model for classifying hand-drawn sketches using Google’s Quick Draw Dataset. The goal is to create an end-to-end MLOps pipeline that effectively processes, classifies and provides predictions for hand-drawn sketches. 
+## Project Description
+This project aims to develop a comprehensive machine learning pipeline for the classification of hand-drawn sketches utilizing Google's Quick Draw Dataset. The primary objective is to construct an end-to-end MLOps infrastructure that encompasses data processing, model training, deployment, and monitoring while adhering to modern MLOps practices and principles.
+
+### Overall Project Goal
+The fundamental goal is to create a robust and scalable system capable of accurately classifying hand-drawn sketches across multiple categories. Beyond mere classification, this project seeks to implement a complete MLOps pipeline that demonstrates industry-standard practices in machine learning deployment. Key objectives include:
+
+* Development of an efficient data pipeline for processing and managing sketch data
+* Implementation of a sophisticated model training and evaluation framework
+* Creation of a scalable deployment infrastructure
+* Integration of monitoring and maintenance systems
+* Establishment of continuous integration and deployment practices
+
 
 ### Framework
-The project uses PyTorch Image Models (TIMM) as the primary framework. TIMM provides a comprehensive collection of computer vision models and pre-trained weights. 
-The implementation includes:
-* Model fine-tuning, for the specific use case. 
-* Explore TIMM’s features for improving performance
-* Use evaluation tools and metrics, e.g. use Torchmetrics (if compatible with TIMM)
+The project will primarily utilize PyTorch Image Models (TIMM) as its core framework, leveraging its extensive collection of state-of-the-art computer vision models and pre-trained weights. TIMM's integration will span several crucial aspects:
+
+* Model Architecture Selection: Utilizing TIMM's diverse model zoo to identify and implement appropriate architectures for sketch classification
+* Transfer Learning: Leveraging pre-trained weights while adapting the models for sketch-specific features
+* Training Optimization: Implementing TIMM's advanced training techniques and optimization strategies
+* Performance Metrics: Integrating TIMM's evaluation tools with additional metrics from Torchmetrics for comprehensive model assessment
 
 ### Data
-The Google Quick, Draw! dataset contains millions of sketches across 345 categories, available as either stroke data (json representation of pen strokes, time stamps etc) or rasterized images (28x28 grayscale images). 
+The project will utilize the Google Quick Draw Dataset, a comprehensive collection of hand-drawn sketches comprising millions of samples across 345 categories. Our initial approach focuses on the rasterized version of the dataset, which provides 28x28 grayscale images. This decision allows us to concentrate on pure visual classification aspects while maintaining computational efficiency.
+Data processing will involve:
 
-Source: Quick, Draw! Dataset
+* Initial focus on 10 selected categories, each containing approximately 50,000 samples
+* Implementation of preprocessing pipelines, including normalization and augmentation
+* Development of efficient data loading and batching mechanisms
 
-The original approach aims to use the rasterized pixel-data, to focus solely on classifying the drawing. The preprocessing of rasterized data could include normalization of the pixels and apply data augmentation. 
-The initial development focuses on 10 categories with approximately 50,000 samples per category, to ensure the model size is manageable. 
 
+### Model
+The model architecture will be based on pre-trained models available through the TIMM framework, with particular consideration given to Vision Transformers (ViT) due to their strong performance in image classification tasks. The selection criteria will include:
 
-### Model:
-The model architecture builds on a pre-trained model from the TIMM Framework (maybe ViT). This should ensure a robust performance and acceptable general capabilities for the project.
+* Model complexity and computational requirements
+* Adaptation capability for sketch-specific features
+* Scalability considerations for future expansion
+* Balance between accuracy and inference speed
 
-This project aims to implement computer vision to classify drawings from "Quick, Draw!"
+The initial implementation will focus on fine-tuning these pre-trained models for sketch classification, with potential exploration of architectural modifications to better suit the specific characteristics of hand-drawn sketches.
 
 
 
