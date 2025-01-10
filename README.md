@@ -17,7 +17,7 @@ This project aims to develop a comprehensive machine learning pipeline for the c
 The fundamental goal is to create a robust and scalable system capable of accurately classifying hand-drawn sketches across multiple categories. Beyond mere classification, this project seeks to implement a complete MLOps pipeline that demonstrates industry-standard practices in machine learning deployment. Key objectives include:
 
 * Development of an efficient data pipeline for processing and managing sketch data
-* Implementation of a sophisticated model training and evaluation framework
+* Implementation of a model training and evaluation framework
 * Creation of a scalable deployment infrastructure
 * Integration of monitoring and maintenance systems
 * Establishment of continuous integration and deployment practices
