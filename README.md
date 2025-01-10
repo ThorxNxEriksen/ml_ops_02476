@@ -1,9 +1,13 @@
 # quick_draw
 ### Group
 S204618 - Thor Nørgaard Eriksen
+
 S204606 - Liv Hyllinge
+
 S204621 - Kathe H. Schmidt 
+
 S214983 - Søren Mondrup
+
 S214659 - Clara Sofie Christiansen
 
 ### Project Overview
