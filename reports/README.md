@@ -145,7 +145,9 @@ Group 49
 
 ### Question 2
 > **Enter the study number for each member in the group**
+> Example:
 >
+> *sXXXXXX, sXXXXXX, sXXXXXX*
 > Answer:
 
 *s204606, s204618, s204621, s214659, s214983*
