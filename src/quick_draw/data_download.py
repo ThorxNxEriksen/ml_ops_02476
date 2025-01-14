@@ -35,5 +35,5 @@ def check_loaded_data(category: str, index: int):
 if __name__ == "__main__":
     categories = ['bear', 'broccoli', 'cake', 'cloud', 'bush', 'The Mona Lisa', 'The Great Wall of China', 'sea turtle', 'moustache', 'mouth']
     load_data_categories(categories)
-    check_loaded_data('cat', 0)
+    check_loaded_data('bear', 0)
 
