@@ -3,11 +3,11 @@ import torch
 import typer
 from data import load_dataset
 from model_test import QuickDrawModel
+from tqdm import tqdm
 
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = torch.device("mps" if torch.has_mps else ("cuda" if torch.cuda.is_available() else "cpu"))
 
-
-def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
+def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5) -> None:
     """Train a model on the 'Quick, Draw!' dataset with validation."""
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
@@ -28,14 +28,16 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
     # Track statistics
     statistics = {"train_loss": [], "train_accuracy": [], "val_loss": [], "val_accuracy": []}
 
-    for epoch in range(epochs):
+    for epoch in tqdm(range(epochs)):
+        print(epoch)
         model.train()
         train_loss = 0.0
         train_correct = 0
         train_total = 0
 
         # Training Loop
-        for images, labels in train_dataloader:
+        for i, (images, labels) in enumerate(train_dataloader):
+            print(i)
             images, labels = images.to(DEVICE), labels.to(DEVICE)
             optimizer.zero_grad()
             outputs = model(images)
