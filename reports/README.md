@@ -140,8 +140,8 @@ will check the repositories and the code to verify your answers.
 > **Enter the group number you signed up on <learn.inside.dtu.dk>**
 >
 > Answer:
-
---- question 1 fill here ---
+>
+> Group 49
 
 ### Question 2
 > **Enter the study number for each member in the group**
@@ -151,7 +151,8 @@ will check the repositories and the code to verify your answers.
 > *sXXXXXX, sXXXXXX, sXXXXXX*
 >
 > Answer:
-
+>
+> *s204606, s204618, s204621, s214659, s214983*
 --- question 2 fill here ---
 
 ### Question 3
