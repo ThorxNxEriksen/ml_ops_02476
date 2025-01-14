@@ -64,6 +64,7 @@ will check the repositories and the code to verify your answers.
     are using (M2+M6)
 
       Note for the group:
+      
       We are doing this, just remember to keep track and update when needed
       
 
