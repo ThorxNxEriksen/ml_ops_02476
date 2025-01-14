@@ -140,20 +140,16 @@ will check the repositories and the code to verify your answers.
 > **Enter the group number you signed up on <learn.inside.dtu.dk>**
 >
 > Answer:
->
-> Group 49
+
+Group 49
 
 ### Question 2
 > **Enter the study number for each member in the group**
 >
-> Example:
->
-> *sXXXXXX, sXXXXXX, sXXXXXX*
->
 > Answer:
->
-> *s204606, s204618, s204621, s214659, s214983*
---- question 2 fill here ---
+
+*s204606, s204618, s204621, s214659, s214983*
+
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
