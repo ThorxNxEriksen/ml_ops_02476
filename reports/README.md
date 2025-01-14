@@ -77,6 +77,11 @@ will check the repositories and the code to verify your answers.
 
 * [ ] Do a bit of code typing and remember to document essential parts of your code (M7)
 * [ ] Setup version control for your data or part of your data (M8)
+
+      Note for the group:
+
+      Set this up (if possible) in the cloud way. Where we haven't made our own bucket, but uses an exisiting bucket.
+
 * [ ] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [ ] Construct one or multiple docker files for your code (M10)
 * [ ] Build the docker files locally and make sure they work as intended (M10)
