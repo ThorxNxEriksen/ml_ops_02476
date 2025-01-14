@@ -16,6 +16,7 @@ def load_data_categories(categories: List[str]):
 
         for i, drawing in enumerate(data.drawings):
             drawing_tensor = transform(drawing.image)
+            drawing_tensor = torch.mean(drawing_tensor, axis=0, dtype=float)// 255
             images.append(drawing_tensor)
 
         images_tensor = torch.stack(images)
