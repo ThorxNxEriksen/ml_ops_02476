@@ -69,6 +69,12 @@ will check the repositories and the code to verify your answers.
       
 
 * [ ] Remember to comply with good coding practices (`pep8`) while doing the project (M7)
+
+      Note for the group:
+
+      If time permits it, look through the code and make it comply with good coding practices.
+      and/or use ruff and pretty while coding
+
 * [ ] Do a bit of code typing and remember to document essential parts of your code (M7)
 * [ ] Setup version control for your data or part of your data (M8)
 * [ ] Add command line interfaces and project commands to your code where it makes sense (M9)
