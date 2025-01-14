@@ -11,7 +11,8 @@ COPY requirements_dev.txt requirements_dev.txt
 COPY README.md README.md
 COPY pyproject.toml pyproject.toml
 
-RUN pip install -r requirements.txt --no-cache-dir --verbose
-RUN pip install . --no-deps --no-cache-dir --verbose
+WORKDIR /
+RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
+RUN pip install . --no-deps --no-cache-dir
 
 ENTRYPOINT ["python", "-u", "src/quick_draw/train.py"]
