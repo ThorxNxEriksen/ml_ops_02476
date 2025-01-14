@@ -54,7 +54,8 @@ will check the repositories and the code to verify your answers.
       
       Note for the group:
       
-            You can set up the environment either by using Docker, which will spin up an environment based on the requirements.txt file, or by manually creating one via the command line using the requirements.txt file.
+      You can set up the environment either by using Docker, which will spin up an environment based on the requirements.txt file,
+      or by manually creating one via the command line using the requirements.txt file.
       
 * [x] Create the initial file structure using cookiecutter with an appropriate template (M6)
 * [ ] Fill out the `data.py` file such that it downloads whatever data you need and preprocesses it (if necessary) (M6)
