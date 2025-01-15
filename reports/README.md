@@ -88,14 +88,14 @@ will check the repositories and the code to verify your answers.
       Set this up (if possible) in the cloud way. Where we haven't made our own bucket, but uses an exisiting bucket.
 
 * [ ] Add command line interfaces and project commands to your code where it makes sense (M9)
-* [ ] Construct one or multiple docker files for your code (M10)
+* [x] Construct one or multiple docker files for your code (M10)
 
       Note for the group:
 
-      There is some inital docke files. The train.dockerfile does work. No further work has been done here do to long compile time.
-      Therefore we also do not use docker files for development, but only "production"
+      There is some inital docke files. The train.dockerfile does work.
+      We do not use docker files for development, but only "production"/deployment
 
-* [ ] Build the docker files locally and make sure they work as intended (M10)
+* [x] Build the docker files locally and make sure they work as intended (M10)
 
       Note for the group:
 
