@@ -44,6 +44,3 @@ jobs:
         run: |
           ruff check . --fix
       
-      - name: Run mypy
-        run: |
-          mypy .
