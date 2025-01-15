@@ -12,6 +12,15 @@ class QuickDrawModel(nn.Module):
         in_features = self.base_model.classifier.in_features
         self.base_model.classifier = nn.Linear(in_features, num_classes)
 
+        # Freeze the base model parameters (all layers except the classifier)
+        for param in self.base_model.parameters():
+            param.requires_grad = False
+
+        # Unfreeze the classifier layer so it can be trained
+        for param in self.base_model.classifier.parameters():
+            param.requires_grad = True
+
+
     def forward(self, x):
         return self.base_model(x)
     
