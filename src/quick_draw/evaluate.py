@@ -1,7 +1,7 @@
 import torch
 import typer
 from data import load_dataset
-from model_test import QuickDrawModel
+from model import QuickDrawModel
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
