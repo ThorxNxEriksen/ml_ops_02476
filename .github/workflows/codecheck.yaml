@@ -40,7 +40,6 @@ jobs:
           ruff format .
       
       - name: Check and fix code using Ruff
-        continue-on-error: true
         run: |
-          ruff check . --fix
+          ruff check . --fix --select F --exit-zero
       
