@@ -70,5 +70,6 @@ def load_dataset(dataset_name: str):
 if __name__ == "__main__":
     categories = ['bear', 'broccoli', 'cake', 'cloud', 'bush', 'The Mona Lisa', 'The Great Wall of China', 'sea turtle', 'moustache', 'mouth']
     preprocess(categories, 0.7, 0.15)
-    load_dataset('train')
+    train_set = load_dataset('train')
+    print(len(train_set))
     #typer.run(preprocess)

@@ -6,17 +6,19 @@ from typing import Callable, Optional, Tuple, Union, List
 
 def load_data_categories(categories: List[str]):
     transform = transforms.Compose([
-        transforms.PILToTensor()
+        transforms.Resize((224,224)),
+        transforms.PILToTensor(), # More transformation will improve the model.
     ])
 
     for category in categories: 
         print(category)
-        data = QuickDrawDataGroup(category)
+        data = QuickDrawDataGroup(category, max_drawings=1000)
         images = []
 
         for i, drawing in enumerate(data.drawings):
             drawing_tensor = transform(drawing.image)
-            images.append(drawing_tensor)
+            drawing_tensor = torch.mean(drawing_tensor, axis=0, dtype=torch.float32)// 255
+            images.append(drawing_tensor.unsqueeze(0))
 
         images_tensor = torch.stack(images)
         # Save as .pt file
