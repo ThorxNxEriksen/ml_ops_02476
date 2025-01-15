@@ -11,7 +11,21 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.logger import logger
 
 
-def split_data(tensor, train_ratio, val_ratio):
+def split_data(tensor: torch.Tensor, train_ratio: float, val_ratio: float):
+    """
+    Splits the data into training, validation, and test sets.
+
+    Args:
+    -----
+        tensor (torch.Tensor): The input data tensor to be split.
+        train_ratio (float): The ratio of the data to be used for training.
+        val_ratio (float): The ratio of the data to be used for validation.
+
+    Returns:
+    --------
+        Tuple[torch.Tensor, torch.Tensor, torch.Tensor]: A tuple containing the training, validation, and test data tensors.
+    """
+
     train_val_data, test_data = train_test_split(tensor, test_size=1 - (train_ratio + val_ratio))
     train_data, val_data = train_test_split(train_val_data, test_size=val_ratio / (train_ratio + val_ratio))
     return train_data, val_data, test_data
@@ -19,11 +33,34 @@ def split_data(tensor, train_ratio, val_ratio):
 
 def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
 
+
     if len(categories) > 10:
         logger.warning(
             f"More than 10 categories selected ({len(categories)}). This may lead to longer preprocessing times and larger datasets."
         )
 
+
+    """
+    Preprocesses the data by splitting it into training, validation, and test sets for each category and adds labels.
+
+    Args:
+    -----
+        categories (List[str]): A list of category names.
+        train_ratio (float): The ratio of the data to be used for training.
+        val_ratio (float): The ratio of the data to be used for validation.
+
+    Returns:
+    --------
+        None
+
+    Saves:
+    ------
+        train_dataset.pt: The training dataset as TensorDataset.
+        val_dataset.pt: The validation dataset as TensorDataset.
+        test_dataset.pt: The test dataset as TensorDataset.
+    """
+    
+    
     final_data = {
             'all_train_images' : [],
             'all_val_images' : [],  
@@ -62,7 +99,7 @@ def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
         final_data['all_val_targets'].append(val_targets)
         final_data['all_test_targets'].append(test_targets)
 
-    # Merge all splits
+    # Merge all splits across categories
     train_images_merged = torch.cat(final_data['all_train_images'])
     train_targets_merged = torch.cat(final_data['all_train_targets'])
 
