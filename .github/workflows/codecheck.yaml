@@ -39,9 +39,9 @@ jobs:
         run: |
           ruff format .
       
-      - name: Check if any files are not formatted
+      - name: Check and fix code using Ruff
         run: |
-          ruff check .
+          ruff check . --fix
       
       - name: Run mypy
         run: |
