@@ -36,7 +36,7 @@ jobs:
 
       - name: Code format using Ruff
         run: |
-          ruff format . --fix
+          ruff format .
       
       - name: Check if any files are not formatted
         run: |
