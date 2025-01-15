@@ -183,7 +183,9 @@ Group 49
 >
 > Answer:
 
---- question 3 fill here ---
+We used the TIMM framework (PyTorch Image Models), a popular library with a wide range of pretrained models for tasks like classification, segmentation, and transfer learning. TIMM is very flexible and gives access to many state-of-the-art models, which made it a great fit for our project.
+
+For our image classification work, we went with the tf_efficientnet_lite0 model. It’s a lightweight version of EfficientNet that’s designed to run efficiently on devices with limited resources, like mobile or edge devices. This model works really well with smaller datasets like ours, the 'Quick, Draw!' dataset, because it balances computational efficiency with strong feature extraction. Since it comes with pretrained weights from ImageNet, we could use transfer learning to reduce training time and still get solid performance with less data. This was especially helpful for the 'Quick, Draw!' dataset, which contains hand-drawn sketches that require the model to pick up on fine details for accurate classification.
 
 ## Coding environment
 
