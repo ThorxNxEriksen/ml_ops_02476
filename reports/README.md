@@ -79,7 +79,7 @@ will check the repositories and the code to verify your answers.
 
       Note for the group:
 
-      This is an ungoing process
+      This is an ungoing process. Data.py has documentation/docstrings and code typing.
       
 * [ ] Setup version control for your data or part of your data (M8)
 
@@ -101,14 +101,14 @@ will check the repositories and the code to verify your answers.
 
       This has been done, but will need to be redone before handin
 
-* [ ] Write one or multiple configurations files for your experiments (M11)
+* [x] Write one or multiple configurations files for your experiments (M11)
+      One config for Wandb sweep exists.
 * [ ] Used Hydra to load the configurations and manage your hyperparameters (M11)
 * [ ] Use profiling to optimize your code (M12)
 * [ ] Use logging to log important events in your code (M14)
-* [ ] Use Weights & Biases to log training progress and other important metrics/artifacts in your code (M14)
-* [ ] Consider running a hyperparameter optimization sweep (M14)
-
-      
+      Not wandb use from loguru import logger
+* [x] Use Weights & Biases to log training progress and other important metrics/artifacts in your code (M14)
+* [x] Consider running a hyperparameter optimization sweep (M14)
 * [ ] Use PyTorch-lightning (if applicable) to reduce the amount of boilerplate in your code (M15)
 
 ### Week 2
