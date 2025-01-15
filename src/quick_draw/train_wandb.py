@@ -6,10 +6,7 @@ from model import QuickDrawModel
 from tqdm import tqdm
 import wandb
 
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-
-DEVICE = torch.device("mps" if torch.has_mps else ("cuda" if torch.cuda.is_available() else "cpu"))
+DEVICE = torch.device("mps" if torch.torch.backends.mps.is_built() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
 def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5) -> None:
     """Train a model on the 'Quick, Draw!' dataset with validation."""

@@ -1,14 +1,14 @@
 import matplotlib.pyplot as plt
 import torch
 import typer
-from data import load_dataset
-from model import QuickDrawModel
+from .data import load_dataset
+from .model import QuickDrawModel
 from tqdm import tqdm
 
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+### HOW TO RUN
+# just call train or python -m quick_draw.train_cli
 
-
-DEVICE = torch.device("mps" if torch.has_mps else ("cuda" if torch.cuda.is_available() else "cpu"))
+DEVICE = torch.device("mps" if torch.torch.backends.mps.is_built() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
 def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5) -> None:
     """Train a model on the 'Quick, Draw!' dataset with validation."""
@@ -100,6 +100,9 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5) -> None:
 
     fig.savefig("reports/figures/training_and_validation_statistics.png")
 
+def main():
+    # Your training logic here
+    typer.run(train)
 
 if __name__ == "__main__":
-    typer.run(train)
+    main()
