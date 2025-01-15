@@ -1,3 +1,4 @@
+import sys 
 from pathlib import Path
 import torch
 from sklearn.model_selection import train_test_split
@@ -5,6 +6,9 @@ import typer
 from torch.utils.data import Dataset
 from typing import Callable, Optional, Tuple, Union, List 
 from torch.utils.data import TensorDataset
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from utils.logger import logger
 
 
 def split_data(tensor, train_ratio, val_ratio):
@@ -14,9 +18,15 @@ def split_data(tensor, train_ratio, val_ratio):
 
 
 def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
+
+    if len(categories) > 10:
+        logger.warning(
+            f"More than 10 categories selected ({len(categories)}). This may lead to longer preprocessing times and larger datasets."
+        )
+
     final_data = {
             'all_train_images' : [],
-            'all_val_images' : [],
+            'all_val_images' : [],  
             'all_test_images' : [],
             'all_train_targets' : [],
             'all_val_targets' : [],
@@ -25,6 +35,15 @@ def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
     category_to_label = {category: idx for idx, category in enumerate(categories)}
 
     for category in categories:
+
+        category_file = Path(f"data/raw/{category}.pt")
+        
+        # Check if the category file exists
+        if not category_file.exists():
+            logger.warning(f"Category '{category}' not found in data/raw. Skipping.")
+            
+            continue  # Skip to the next category
+
         print(category)
         data = torch.load(f'data/raw/{category}.pt', weights_only=True)
         
@@ -68,7 +87,8 @@ def load_dataset(dataset_name: str):
     return dataset   
 
 if __name__ == "__main__":
-    categories = ['bear', 'broccoli', 'cake', 'cloud', 'bush', 'The Mona Lisa', 'The Great Wall of China', 'sea turtle', 'moustache', 'mouth']
+    categories = ['bear', 'broccoli', 'cake', 'cloud', 'bush', 'The Mona Lisa', 'The Great Wall of China', 'sea turtle', 'moustache', 'mouth', 'butterfly'] 
+
     preprocess(categories, 0.7, 0.15)
     train_set = load_dataset('train')
     print(len(train_set))
