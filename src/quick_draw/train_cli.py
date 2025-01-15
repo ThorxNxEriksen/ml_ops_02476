@@ -7,6 +7,8 @@ from tqdm import tqdm
 
 ### HOW TO RUN
 # just call train or python -m quick_draw.train_cli
+## HOW TO DO PROFILING
+# python -m cProfile -s cumtime -o profile.txt -m quick_draw.train
 
 DEVICE = torch.device("mps" if torch.torch.backends.mps.is_built() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
