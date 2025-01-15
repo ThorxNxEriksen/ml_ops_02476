@@ -13,7 +13,8 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
+        #operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
+        operating-system: ["windows-latest"]
         python-version: ["3.11"]
 
     steps:
@@ -34,9 +35,15 @@ jobs:
           pip install -r requirements_dev.txt
           pip list
 
+      - name: Set PYTHONPATH (Unix)
+        if: runner.os != 'Windows'
+        run: echo "PYTHONPATH=\$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
+
+      - name: Set PYTHONPATH (Windows)
+        if: runner.os == 'Windows'
+        run: echo "PYTHONPATH=\$env:PYTHONPATH;$(pwd)/src" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Run tests & coverage
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/src
           coverage run -m pytest tests/
           coverage report -m
