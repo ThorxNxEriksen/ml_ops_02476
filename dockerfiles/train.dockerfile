@@ -8,7 +8,8 @@ RUN apt update && \
 
 # Install Python dependencies
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt --no-cache-dir --verbose
+#RUN pip install -r requirements.txt --no-cache-dir --verbose
+RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 
 # Copy files
 COPY src src/
@@ -26,4 +27,4 @@ RUN python src/quick_draw/data_download.py
 RUN python src/quick_draw/data.py 
 
 # Set the entry point
-ENTRYPOINT ["python", "-u", "src/quick_draw/train.py"]
+ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py"]
