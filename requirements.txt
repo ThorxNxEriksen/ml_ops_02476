@@ -10,6 +10,7 @@ quickdraw==1.0.0
 
 # Experiment Tracking and Logging
 wandb==0.19.3
+loguru==0.7.3
 
 # API Development
 fastapi==0.115.6
