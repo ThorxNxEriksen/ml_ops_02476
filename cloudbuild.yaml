@@ -3,7 +3,9 @@ steps:
   args:
     - build
     - "-t"
-    - "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train"
+    - "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image"
+    - "--progress=plain"  # Enables detailed build logs
+    - "--no-cache"        # Forces a clean build
     - "dockerfiles/train.dockerfile"
     - "."
 #- name: 'gcr.io/cloud-builders/docker'
@@ -15,8 +17,12 @@ steps:
 #    - "."
 # Add more steps as needed for additional Dockerfiles...
 
-images:
-  - "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train"
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Push container image'
+  args: [
+    'push',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image'
+  ]
   
 #- "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/image2"
 # Add more image names as needed for additional Dockerfiles.
