@@ -202,7 +202,7 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
-We managed our dependencies using a requirements.txt file, which contains a list of all the Python libraries and their versions used in our project. This ensures that every team member works with the same versions of the libraries, avoiding compatibility issues. The dependencies were manually curated by each member, so when a group member included a new tool, this was also added to the requirements.txt file. The requirements file includes essential libraries like PyTorch, scikit-learn, and Loguru, along with specific tools like timm for image models. If a new team member were to join, these are the steps to take in order to replicate our setup (in conda):  
+We managed our dependencies using a requirements.txt file, which contains a list of all the Python libraries and their versions used in our project. This ensures that every team member works with the same versions of the libraries, avoiding compatibility issues. The dependencies were manually added by team members, so when a group member included a new tool, this was also added to the requirements.txt file. The requirements file includes essential libraries like PyTorch, scikit-learn, and Loguru, along with specific tools like timm for image models. If a new team member were to join, these are the steps to take in order to replicate our setup (in conda):  
 1. Install Conda or Miniconda
 2. Run: conda create -n <environment_name> python=X.X -- creates a new local environment for the project
 3. Run: conda activate <environment_name> -- activate the environment that was just created
@@ -275,7 +275,7 @@ In larger projects, these concepts are greatly importan for maintaining consiste
 >
 > Answer:
 
-The total code coverage of our project is [X]% (, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests—it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
+The total code coverage of our project is [X]%, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests—it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
 
 Additionally, there are certain types of issues, like race conditions or hardware-specific bugs, that can’t be caught by typical tests. While high coverage is a great starting point and shows that the code has been exercised thoroughly, it’s not the whole picture. To really trust the code, it’s important to combine high coverage with thoughtful test design, edge case validation, and other testing strategies like integration and stress testing.
 
