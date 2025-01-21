@@ -81,7 +81,7 @@ def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
             
             continue  # Skip to the next category
 
-        print(category)
+        logger.info("Category: {category}")
         data = torch.load(f'data/raw/{category}.pt', weights_only=True)
         
         train_images, val_images, test_images = split_data(data, train_ratio, val_ratio)
@@ -128,5 +128,6 @@ if __name__ == "__main__":
 
     preprocess(categories, 0.7, 0.15)
     train_set = load_dataset('train')
-    print(len(train_set))
+    len_train = len(train_set)
+    logger.info("Length of training set: {len_train}")
     #typer.run(preprocess)

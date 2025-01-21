@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 import torch
 import torchvision.transforms as transforms
 from typing import Callable, Optional, Tuple, Union, List 
+import sys 
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from utils.logger import logger
 
 def load_data_categories(categories: List[str]):
     transform = transforms.Compose([
@@ -11,7 +16,8 @@ def load_data_categories(categories: List[str]):
     ])
 
     for category in categories: 
-        print(category)
+        logger.info("Category: {category}")
+
         data = QuickDrawDataGroup(category, max_drawings=1000)
         images = []
 
