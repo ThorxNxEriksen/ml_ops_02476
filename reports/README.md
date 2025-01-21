@@ -121,6 +121,7 @@ If possible no work in cloud
 .
 
 * [ ] Create a FastAPI application that can do inference using your model (M22)
+      
       Working on it
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
