@@ -307,7 +307,7 @@ Yes, our whole project was managed through GitHub with branches and pull request
 >
 > Answer:
 
-We used dvc to push our data to gcloud and for version control. The data can be pulled with the `dvc pull` command. In our project we don't have much use for version control at the moment, as we don't update the dataset. If the project was to be expanded and allow for user-submitted drawings to be added, we could track the development of data and compare the model performance between different datasets. This could potentially help us revert to an earlier dataset, if we got flooded by badly labelled or poorly drawn data.
+We used DVC to push our data to Google Cloud and for version control. The data can be pulled with the `dvc pull` command. In our project we don't have much use for version control at the moment, as we don't update the dataset. If the project was to be expanded and allow for user-submitted drawings to be added, we could track the development of data and compare the model performance between different datasets. This could potentially help us revert to an earlier dataset, if we got flooded by badly labelled or poorly drawn data.
 
 ### Question 11
 
@@ -343,7 +343,8 @@ We used dvc to push our data to gcloud and for version control. The data can be 
 >
 > Answer:
 
---- question 12 fill here ---
+We configured experiments in WandB through a config file called sweep.yml file, which is located in our configs folder and points to our training script train_wandb.py. Experiments are run for the hyperparameters learning rate, epochs and batch size, which the sweep combines to find the minimal validation loss. The sweep can be initalized using the command: 'wandb sweep configs/sweep.yaml', and after the sweep, the results are available in WandB. 
+
 
 ### Question 13
 
@@ -358,7 +359,7 @@ We used dvc to push our data to gcloud and for version control. The data can be 
 >
 > Answer:
 
---- question 13 fill here ---
+Version control of the config file sweep.yml and train_wandb.py is ensured through GitHub, which tracks any changes to these. WandB tracks each experiment that is run, and since each run has an ID, it can be identified and re-run if needed. The training and validation metrics are also logged for each sweep, so no information is lost while running the experiments. The full model architecture, including weights and biases, is also saved after training, in the 'models' folder as a pth file (a specific file type used for PyTorch for this specific purpose), so that it can be used again. 
 
 ### Question 14
 
