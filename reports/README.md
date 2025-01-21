@@ -80,7 +80,7 @@ will check the repositories and the code to verify your answers.
 * [x] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [x] Construct one or multiple docker files for your code (M10)
 
-      There is some inital docke files. The train.dockerfile does work.
+      There is some initial docker files. The train.dockerfile does work.
       We do not use docker files for development, but only "production"/deployment
 
 * [x] Build the docker files locally and make sure they work as intended (M10)
@@ -106,10 +106,7 @@ will check the repositories and the code to verify your answers.
 * [x] Write unit tests related to model construction and or model training (M16)
 * [x] Calculate the code coverage (M16)
 * [x] Get some continuous integration running on the GitHub repository (M17)
-* [ ] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
-
-      Working progress
-
+* [x] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
 * [x] Add a linting step to your continuous integration (M17)
 * [ ] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
@@ -124,6 +121,7 @@ If possible no work in cloud
 .
 
 * [ ] Create a FastAPI application that can do inference using your model (M22)
+      Working on it
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
