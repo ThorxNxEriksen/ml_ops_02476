@@ -204,9 +204,9 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 
 We managed our dependencies using a requirements.txt file, which contains a list of all the Python libraries and their versions used in our project. This ensures that every team member works with the same versions of the libraries, avoiding compatibility issues. The dependencies were manually added by team members, so when a group member included a new tool, this was also added to the requirements.txt file. The requirements file includes essential libraries like PyTorch, scikit-learn, and Loguru, along with specific tools like timm for image models. If a new team member were to join, these are the steps to take in order to replicate our setup (in conda):  
 1. Install Conda or Miniconda
-2. Run: conda create -n <environment_name> python=X.X -- creates a new local environment for the project
-3. Run: conda activate <environment_name> -- activate the environment that was just created
-4. Run: pip install -r requirements.txt -- installs the requirements to that local environment 
+2. Run: `conda create -n <environment_name> python=X.X` -- creates a new local environment for the project
+3. Run: `conda activate <environment_name>` -- activate the environment that was just created
+4. Run: `pip install -r requirements.txt` -- installs the requirements to that local environment 
 
 This will ensure that the new member has all the required libraries to be able to continue the development of the project. 
 If a new team member were to only develop our classification model, spinning up our dockerfile of the model would replicate the needed environment entirely. 
@@ -343,7 +343,7 @@ We used DVC to push our data to Google Cloud and for version control. The data c
 >
 > Answer:
 
-We configured experiments in WandB through a config file called sweep.yml file, which is located in our configs folder and points to our training script train_wandb.py. Experiments are run for the hyperparameters learning rate, epochs and batch size, which the sweep combines to find the minimal validation loss. The sweep can be initalized using the command: 'wandb sweep configs/sweep.yaml', and after the sweep, the results are available in WandB. 
+We configured experiments in WandB through a config file called sweep.yml file, which is located in our configs folder and points to our training script train_wandb.py. Experiments are run for the hyperparameters learning rate, epochs and batch size, which the sweep combines to find the minimal validation loss. The sweep can be initalized using the command: `wandb sweep configs/sweep.yaml`, and after the sweep, the results are available in WandB. 
 
 
 ### Question 13
