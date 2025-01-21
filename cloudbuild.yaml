@@ -1,13 +1,16 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args:
-    - build
-    - "-t"
-    - "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image"
-    - "--progress=plain"  # Enables detailed build logs
-    - "--no-cache"        # Forces a clean build
-    - "dockerfiles/train.dockerfile"
-    - "."
+  id: 'Build container image'
+  args: [
+    'build',
+    '.',
+    '-t',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image',
+    '--progress=plain',
+    '-f',
+    'dockerfiles/train.dockerfile'
+  ]
+
 #- name: 'gcr.io/cloud-builders/docker'
 #  args:
 #    - build
