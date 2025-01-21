@@ -111,18 +111,11 @@ will check the repositories and the code to verify your answers.
 * [ ] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
-
-
-If possible no work in cloud
 * [ ] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
 
-.
-
-* [ ] Create a FastAPI application that can do inference using your model (M22)
-      
-      Working on it
+* [x] Create a FastAPI application that can do inference using your model (M22)
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
@@ -182,7 +175,7 @@ Group 49
 
 We used the TIMM framework (PyTorch Image Models), a popular library with a wide range of pretrained models for tasks like classification, segmentation, and transfer learning. TIMM is very flexible and gives access to many state-of-the-art models, which made it a great fit for our project.
 
-For our image classification work, we went with the tf_efficientnet_lite0 model. It’s a lightweight version of EfficientNet that’s designed to run efficiently on devices with limited resources, like mobile or edge devices. This model works really well with smaller datasets like ours, the 'Quick, Draw!' dataset, because it balances computational efficiency with strong feature extraction. Since it comes with pretrained weights from ImageNet, we could use transfer learning to reduce training time and still get solid performance with less data. This was especially helpful for the 'Quick, Draw!' dataset, which contains hand-drawn sketches that require the model to pick up on fine details for accurate classification.
+For our image classification work, we went with the tf_efficientnet_lite0 model. It’s a lightweight version of EfficientNet that’s designed to run efficiently on devices with limited resources. This model works really well with smaller datasets like ours, the 'Quick, Draw!' dataset, because it balances computational efficiency with strong feature extraction. Since it comes with pretrained weights based on the ImageNet dataset, we could use transfer learning to reduce training time and still get solid performance with less data. This was especially helpful for the 'Quick, Draw!' dataset, which contains hand-drawn sketches that require the model to pick up on fine details for accurate classification.
 
 ## Coding environment
 
