@@ -307,7 +307,7 @@ Yes, our whole project was managed through GitHub with branches and pull request
 >
 > Answer:
 
---- question 10 fill here ---
+We used dvc to push our data to gcloud and for version control. The data can be pulled from with the ´´´dvc pull´´´ command. In our project we don't have much use for version control at the moment, as we don't update the dataset. If the project was to be expanded and allow for user-submitted drawings to be added, we could track the development of data and compare the model performance between different datasets. This could potentially help us revert to an earlier dataset, if we got flooded by badly labelled or poorly drawn data.
 
 ### Question 11
 
