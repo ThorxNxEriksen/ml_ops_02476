@@ -16,11 +16,16 @@ COPY src src/
 COPY README.md README.md
 COPY pyproject.toml pyproject.toml
 COPY models models/
-COPY data data/
+#COPY data data/
 COPY reports reports/
 
 # Install the application
 RUN pip install . --no-deps --no-cache-dir --verbose
+
+# Create the data directory with subfolders
+RUN mkdir -p data/raw && mkdir -p data/processed && \
+    echo "Placeholder for raw data" > data/raw/placeholder.txt && \
+    echo "Placeholder for processed data" > data/processed/placeholder.txt
 
 # Download and prepare data
 RUN python src/quick_draw/data_download.py 
