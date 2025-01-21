@@ -21,3 +21,5 @@ images:
 #- "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/image2"
 # Add more image names as needed for additional Dockerfiles.
 
+options:
+  logging: CLOUD_LOGGING_ONLY
