@@ -1,5 +1,4 @@
 steps:
-### Build the image test. This should be deleted 
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Build container image'
   args: [
@@ -19,7 +18,6 @@ steps:
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image_test'
   ]
 
-### Build the backend. Let's get it
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Build container image'
   args: [
