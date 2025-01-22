@@ -324,7 +324,7 @@ We used DVC to push our data to Google Cloud and for version control. The data c
 >
 > Answer:
 
---- question 11 fill here ---
+We use three different types of continuous integration: Unit testing is done in [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), this includes testing the data, our model and the API. During development, we ran 6 different versions: Python 3.11 and 3.12 on Windows, Ubuntu and MacOS, but this used a lot of time on GitHub, so to avoid running out of compute time we reduced this to just checking with 3.11 on MacOS. This should be reverted once the project is stable. Linting is done in [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors. The cookiecutter template also implemented a weekly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`
 
 ## Running code and tracking experiments
 
