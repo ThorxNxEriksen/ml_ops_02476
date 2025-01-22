@@ -1,4 +1,5 @@
 steps:
+### Build the image test. This should be deleted 
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Build container image'
   args: [
@@ -17,6 +18,28 @@ steps:
     'push',
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image_test'
   ]
+
+### Build the backend. Let's get it
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Build container image'
+  args: [
+    'build',
+    '.',
+    '-t',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image',
+    '--progress=plain',
+    '-f',
+    'dockerfiles/api.dockerfile'
+  ] 
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Push container image'
+  args: [
+    'push',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image'
+  ]
+
+
 
 options:
   logging: CLOUD_LOGGING_ONLY
