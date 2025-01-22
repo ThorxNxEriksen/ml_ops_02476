@@ -430,7 +430,13 @@ The second image shows how the values of the hyperparameters change for each exp
 >
 > Answer:
 
---- question 17 fill here ---
+Cloud build - Builds the docker images on any commit to the `main` in the Github repo and pushes them to Artifact registry.
+
+Artifact registry - Stores the images created by Cloud build
+
+Engine - Runs a VM which can then run the containers based on the image retrieved from Artifact registry.
+
+Bucket - Stores data sets and (ideally) the latest model file generated from training in the Engine.
 
 ### Question 18
 
