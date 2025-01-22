@@ -4,7 +4,7 @@ import torch
 import torchvision.transforms as transforms
 from PIL import Image
 import io
-from model import QuickDrawModel
+from src.quick_draw.model import QuickDrawModel
 
 app = FastAPI()
 
@@ -22,7 +22,7 @@ CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush',
 
 # Load model
 model = QuickDrawModel(num_classes=len(CATEGORIES))
-model.load_state_dict(torch.load("/Users/khs/code/ml_ops_02476/models/quickdraw_model.pth", map_location='cpu', weights_only=True))
+model.load_state_dict(torch.load("models/quickdraw_model.pth", map_location='cpu', weights_only=True))
 model.eval()
 
 @app.get("/")
