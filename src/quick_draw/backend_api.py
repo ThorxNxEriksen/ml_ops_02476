@@ -15,7 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # Categories
 CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush', 
               'The Mona Lisa', 'The Great Wall of China', 
@@ -23,7 +22,7 @@ CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush',
 
 # Load model
 model = QuickDrawModel(num_classes=len(CATEGORIES))
-model.load_state_dict(torch.load("/Users/khs/code/ml_ops_02476/models/quickdraw_model.pth", map_location='cpu'))
+model.load_state_dict(torch.load("/Users/khs/code/ml_ops_02476/models/quickdraw_model.pth", map_location='cpu', weights_only=True))
 model.eval()
 
 @app.get("/")
