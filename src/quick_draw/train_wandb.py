@@ -15,6 +15,8 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 1, gcp_bucket: b
     print(f"{lr=}, {batch_size=}, {epochs=}")
     print(os.getcwd())
     print(os.listdir())
+    os.chdir("mnt")
+    print(os.listdir())
 
     if secret_manager:
         wandb.login(key="4359ea2ef73a2790826a8f0b8fad581d23ca3b68")
