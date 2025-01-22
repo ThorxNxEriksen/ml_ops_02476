@@ -1,24 +1,4 @@
 steps:
-#This is just a tests
-- name: 'gcr.io/cloud-builders/docker'
-  id: 'Build test container image'
-  args: [
-    'build',
-    '.',
-    '-t',
-    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image_test',
-    '--progress=plain',
-    '-f',
-    'cloud_test/cloud_test.dockerfile'
-  ] 
-
-- name: 'gcr.io/cloud-builders/docker'
-  id: 'Push test container image'
-  args: [
-    'push',
-    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image_test'
-  ]
-
 #This part builds and deploys the actual api
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Build api container image'
@@ -39,6 +19,36 @@ steps:
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image'
   ]
 
+# # # - name: 'gcr.io/cloud-builders/docker'
+# # #   id: 'Build container image'
+# # #   args: [
+# # #     'build',
+# # #     '.',
+# # #     '-t',
+# # #     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image',
+# # #     '--progress=plain',
+# # #     '-f',
+# # #     'dockerfiles/train_gcloud.dockerfile'
+# # #   ]
+
+# # # #- name: 'gcr.io/cloud-builders/docker'
+# # # #  args:
+# # # #    - build
+# # # #    - "-t"
+# # # #    - "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/evaluate"
+# # # #    - "--file=path/to/Dockerfile2"
+# # # #    - "."
+# # # # Add more steps as needed for additional Dockerfiles...
+
+# # # - name: 'gcr.io/cloud-builders/docker'
+# # #   id: 'Push container image'
+# # #   args: [
+# # #     'push',
+# # #     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image'
+# # #   ]
+  
+# # # #- "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/image2"
+# # # # Add more image names as needed for additional Dockerfiles.
 
 
 options:
