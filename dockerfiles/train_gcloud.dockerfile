@@ -14,6 +14,7 @@ RUN pip install -r requirements.txt --no-cache-dir --verbose
 # Copy files
 COPY src src/
 COPY README.md README.md
+COPY data data/
 COPY pyproject.toml pyproject.toml
 COPY models models/
 COPY reports reports/
@@ -21,5 +22,9 @@ COPY reports reports/
 # Install the application
 RUN pip install . --no-deps --no-cache-dir --verbose
 
+# Download and prepare data
+RUN python src/quick_draw/data_download.py 
+RUN python src/quick_draw/data.py 
+
 # Set the entry point
-ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py", "--gcp-bucket", "--secret-manager"]
+ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py", "--no-gcp-bucket", "--secret-manager"]
