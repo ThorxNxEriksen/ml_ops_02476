@@ -121,7 +121,7 @@ def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
 
 def load_dataset(dataset_name: str, gcp_bucket: bool = False) -> TensorDataset:
     if gcp_bucket:
-        dataset = torch.load(f'/gcs/quickdraw-databucket/data/processed/{dataset_name}_dataset.pt', weights_only=False)
+        dataset = torch.load(f'/mnt/gcs-bucket/data/processed/{dataset_name}_dataset.pt', weights_only=False)
     else:
         dataset = torch.load(f'data/processed/{dataset_name}_dataset.pt', weights_only=False)   
     return dataset   

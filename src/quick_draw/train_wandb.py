@@ -104,7 +104,7 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5, gcp_bucket: b
     # Save model
     print("Training complete")
     if gcp_bucket:
-        torch.save(model.state_dict(), "/gcs/quickdraw-databucket/models/quickdraw_model.pth")
+        torch.save(model.state_dict(), "/mnt/gcs-bucket/quickdraw-databucket/models/quickdraw_model.pth")
         artifact.add_file("/gcs/quickdraw-databucket/models/quickdraw_model.pth")
     else:
         torch.save(model.state_dict(), "models/quickdraw_model.pth")
