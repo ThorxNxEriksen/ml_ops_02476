@@ -73,7 +73,7 @@ will check the repositories and the code to verify your answers.
 
       This is an ongoing process. Data.py has documentation/docstrings and code typing.
       
-* [ ] Setup version control for your data or part of your data (M8)
+* [x] Setup version control for your data or part of your data (M8)
 
       Set this up (if possible) in the cloud way. Where we haven't made our own bucket, but uses an exisiting bucket.
 
@@ -115,7 +115,7 @@ will check the repositories and the code to verify your answers.
 
 If possible no work in cloud
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
-* [ ] Create a trigger workflow for automatically building your docker images (M21)
+* [x] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
 
 .
