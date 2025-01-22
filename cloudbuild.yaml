@@ -1,6 +1,7 @@
 steps:
+#This is just a tests
 - name: 'gcr.io/cloud-builders/docker'
-  id: 'Build container image'
+  id: 'Build test container image'
   args: [
     'build',
     '.',
@@ -12,14 +13,15 @@ steps:
   ] 
 
 - name: 'gcr.io/cloud-builders/docker'
-  id: 'Push container image'
+  id: 'Push test container image'
   args: [
     'push',
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image_test'
   ]
 
+#This part builds and deploys the actual api
 - name: 'gcr.io/cloud-builders/docker'
-  id: 'Build container image'
+  id: 'Build api container image'
   args: [
     'build',
     '.',
@@ -31,7 +33,7 @@ steps:
   ] 
 
 - name: 'gcr.io/cloud-builders/docker'
-  id: 'Push container image'
+  id: 'Push api container image'
   args: [
     'push',
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image'
