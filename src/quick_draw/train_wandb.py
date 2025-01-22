@@ -8,18 +8,23 @@ import wandb
 
 DEVICE = torch.device("mps" if torch.torch.backends.mps.is_built() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
-def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5) -> None:
+def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5, gcp_bucket: bool = False, secret_manager: bool = False) -> None:
     """Train a model on the 'Quick, Draw!' dataset with validation."""
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
+
+    if secret_manager:
+        wandb.login(key="4359ea2ef73a2790826a8f0b8fad581d23ca3b68")
+
+    # Initialize wandb
     run = wandb.init(
         project="train_wandb",
         config={"lr": lr, "batch_size": batch_size, "epochs": epochs},
     )
 
     # Load datasets using train_function() and validation_function()
-    train_set = load_dataset('train')
-    validation_set = load_dataset('val')
+    train_set = load_dataset('train', gcp_bucket)
+    validation_set = load_dataset('val', gcp_bucket)
 
     # Create DataLoaders
     train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True)
@@ -90,17 +95,21 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5) -> None:
               f"Train Loss: {train_loss:.4f}, Train Accuracy: {train_accuracy:.4f}, "
               f"Val Loss: {val_loss:.4f}, Val Accuracy: {val_accuracy:.4f}")
 
-    # Save model
-    print("Training complete")
-    torch.save(model.state_dict(), "models/quickdraw_model.pth")
-    
     # Save model on wandb
     artifact = wandb.Artifact(
             name="efficient_net",
             type="model",
             description=f"Run: {wandb.run.id}"
         )
-    artifact.add_file("models/quickdraw_model.pth")
+    # Save model
+    print("Training complete")
+    if gcp_bucket:
+        torch.save(model.state_dict(), "/gcs/quickdraw-databucket/models/quickdraw_model.pth")
+        artifact.add_file("/gcs/quickdraw-databucket/models/quickdraw_model.pth")
+    else:
+        torch.save(model.state_dict(), "models/quickdraw_model.pth")
+        artifact.add_file("models/quickdraw_model.pth")
+    
     wandb.log_artifact(artifact)
 
     # Plot training and validation statistics
