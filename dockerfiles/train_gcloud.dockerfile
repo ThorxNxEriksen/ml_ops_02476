@@ -22,4 +22,4 @@ COPY reports reports/
 RUN pip install . --no-deps --no-cache-dir --verbose
 
 # Set the entry point
-ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py", "--gcp_bucket=True"]
+ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py", "--gcp-bucket=True"]
