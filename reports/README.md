@@ -71,16 +71,16 @@ will check the repositories and the code to verify your answers.
 
 * [ ] Do a bit of code typing and remember to document essential parts of your code (M7)
 
-      This is an ungoing process. Data.py has documentation/docstrings and code typing.
+      This is an ongoing process. Data.py has documentation/docstrings and code typing.
       
-* [ ] Setup version control for your data or part of your data (M8)
+* [x] Setup version control for your data or part of your data (M8)
 
       Set this up (if possible) in the cloud way. Where we haven't made our own bucket, but uses an exisiting bucket.
 
 * [x] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [x] Construct one or multiple docker files for your code (M10)
 
-      There is some inital docke files. The train.dockerfile does work.
+      There is some initial docker files. The train.dockerfile does work.
       We do not use docker files for development, but only "production"/deployment
 
 * [x] Build the docker files locally and make sure they work as intended (M10)
@@ -106,10 +106,7 @@ will check the repositories and the code to verify your answers.
 * [x] Write unit tests related to model construction and or model training (M16)
 * [x] Calculate the code coverage (M16)
 * [x] Get some continuous integration running on the GitHub repository (M17)
-* [ ] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
-
-      Working progress
-
+* [x] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
 * [x] Add a linting step to your continuous integration (M17)
 * [ ] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
@@ -117,13 +114,15 @@ will check the repositories and the code to verify your answers.
 
 
 If possible no work in cloud
-* [ ] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
-* [ ] Create a trigger workflow for automatically building your docker images (M21)
+* [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
+* [x] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
 
 .
 
 * [ ] Create a FastAPI application that can do inference using your model (M22)
+      
+      Working on it
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
@@ -203,7 +202,14 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 4 fill here ---
+We managed our dependencies using a requirements.txt file, which contains a list of all the Python libraries and their versions used in our project. This ensures that every team member works with the same versions of the libraries, avoiding compatibility issues. The dependencies were manually added by team members, so when a group member included a new tool, this was also added to the requirements.txt file. The requirements file includes essential libraries like PyTorch, scikit-learn, and Loguru, along with specific tools like timm for image models. If a new team member were to join, these are the steps to take in order to replicate our setup (in conda):  
+1. Install Conda or Miniconda
+2. Run: `conda create -n <environment_name> python=X.X` -- creates a new local environment for the project
+3. Run: `conda activate <environment_name>` -- activate the environment that was just created
+4. Run: `pip install -r requirements.txt` -- installs the requirements to that local environment 
+
+This will ensure that the new member has all the required libraries to be able to continue the development of the project. 
+If a new team member were to only develop our classification model, spinning up our dockerfile of the model would replicate the needed environment entirely. 
 
 ### Question 5
 
@@ -219,7 +225,7 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 5 fill here ---
+We have used the cookiecutter template pretty much as-is. We found it intuitive and fitting for our project, and we filled out the model.py and data.py along with the requirements.txt file first thing. However, we saw fit to split the src folder into two parts, a 'quick_draw' folder for all scripts relating to the data download and preprocessing as well as creating the model, and a 'utils' folder containing the script for logging. In this way we could better separate the different scripts we were developing, and split our scripts into those relevant for the data and model of the project, and helper scripts. 
 
 ### Question 6
 
@@ -234,7 +240,8 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 6 fill here ---
+--- (Write more about our approach to this!) 
+In larger projects, these concepts are greatly importan for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
 
 ## Version control
 
@@ -253,7 +260,7 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 7 fill here ---
+We implemented 2 tests, one test for the model and one for the data. The tests are located i the 'test' folder provided by cookiecutter, and are triggered through GitHiub actions, which checks the tests.yml file, which points to the test folder. The test_data.py checks if a processed dataset exists, if the load and splitting of the data works, and if the preprocess function works. The test_model.py file tests the model using a random input, checking the output shape of the model, verifies whether the classifier layer of the model is trainable, and that the model does not get updated parameters except for in the layer called 'classifier', so that only this layer is trainable. 
 
 ### Question 8
 
@@ -268,7 +275,9 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 8 fill here ---
+The total code coverage of our project is [X]%, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests—it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
+
+Additionally, there are certain types of issues, like race conditions or hardware-specific bugs, that can’t be caught by typical tests. While high coverage is a great starting point and shows that the code has been exercised thoroughly, it’s not the whole picture. To really trust the code, it’s important to combine high coverage with thoughtful test design, edge case validation, and other testing strategies like integration and stress testing.
 
 ### Question 9
 
@@ -283,7 +292,7 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 9 fill here ---
+Yes, our whole project was managed through GitHub with branches and pull requests. We tried to follow naming conventions for our branches, starting with the developer's initals and then a short description of what was being done. The initials should also be included in the commit message, as well as an explanation of what was done. After a new branch passed the checks in GitHub (a unit test and a code test) and potential merge conflicts are resolved, the branch is merged with the main branch. After a branch has been merged, we agreed to delete that branch and start on a new one, when developing a new feature, to minimize merge conflicts and ensure no updates to the code are forgotten on a branch that is no longer used. This setup made it easy for more team members to work on the code simultaneously, while also keeping track of new additions, and enabling version control of the code. 
 
 ### Question 10
 
@@ -298,7 +307,7 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 10 fill here ---
+We used DVC to push our data to Google Cloud and for version control. The data can be pulled with the `dvc pull` command. In our project we don't have much use for version control at the moment, as we don't update the dataset. If the project was to be expanded and allow for user-submitted drawings to be added, we could track the development of data and compare the model performance between different datasets. This could potentially help us revert to an earlier dataset, if we got flooded by badly labelled or poorly drawn data.
 
 ### Question 11
 
@@ -334,7 +343,8 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 12 fill here ---
+We configured experiments in WandB through a config file called sweep.yml file, which is located in our configs folder and points to our training script train_wandb.py. Experiments are run for the hyperparameters learning rate, epochs and batch size, which the sweep combines to find the minimal validation loss. The sweep can be initalized using the command: `wandb sweep configs/sweep.yaml`, and after the sweep, the results are available in WandB. 
+
 
 ### Question 13
 
@@ -349,7 +359,7 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 13 fill here ---
+Version control of the config file sweep.yml and train_wandb.py is ensured through GitHub, which tracks any changes to these. WandB tracks each experiment that is run, and since each run has an ID, it can be identified and re-run if needed. The training and validation metrics are also logged for each sweep, so no information is lost while running the experiments. The full model architecture, including weights and biases, is also saved after training, in the 'models' folder as a pth file (a specific file type used for PyTorch for this specific purpose), so that it can be used again. 
 
 ### Question 14
 
@@ -366,7 +376,14 @@ For our image classification work, we went with the tf_efficientnet_lite0 model.
 >
 > Answer:
 
---- question 14 fill here ---
+![image](https://github.com/user-attachments/assets/26773d3b-323f-478d-b985-43d5b5dfaa26)
+
+As seen in the first picture, we have done 4 separate sweeps where we have looked at the loss and accuracy of both the validation and training set. For both of the accuracy graphs, the accuracy steadily increases, while the loss decreases for both the validation and training set, indicating that new and better combinations of the hyperparameters are found at each step.
+
+![image](https://github.com/user-attachments/assets/cc251372-4abe-4f2f-9349-047449337ab9)
+
+The second image shows how the values of the hyperparameters change for each experiment. The 4 experiments are visualized in the second image, which shows what different combinations of these hyperparameters are being used for a given experiment. These hyperparameters are greatly important for model performance. The learning rate controls the size of updates to the model's weights, so a large learning rate might take steps that are too large and miss good values in between, while a smaller learning rate is much slower. The batch size determines the number of training samples each training iteration to compute the gradient and update the weights, so small batch sizes can introduce more noise, and while larger batches lead to more stable updates, they also require much more memory. Finally, number of epochs is the times that the entire dataset is put through the model. Too few might lead to overfitting, while too many can lead to overfitting. Getting these hyperparameters right is crucial for having a robust and well-performing model. 
+
 
 ### Question 15
 

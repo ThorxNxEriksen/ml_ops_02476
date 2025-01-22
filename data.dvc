@@ -1,0 +1,95 @@
+outs:
+- hash: md5
+  path: data
+  files:
+  - relpath: processed/test_dataset.pt
+    md5: f971ed5b94d40a46ae0502cbd0eb53fe
+    size: 303076598
+    cloud:
+      remote_storage:
+        etag: 08b69d99d5ce868b031001
+        version_id: '1737455646953142'
+  - relpath: processed/train_dataset.pt
+    md5: 91a7e6c2d976177328f889ee53c1b0cb
+    size: 1402978364
+    cloud:
+      remote_storage:
+        etag: 08fce1def1ce868b031001
+        version_id: '1737455706812668'
+  - relpath: processed/val_dataset.pt
+    md5: f58504d2e67c1dd13bcbabd1e908c31e
+    size: 301069488
+    cloud:
+      remote_storage:
+        etag: 08f9959ed6ce868b031001
+        version_id: '1737455649131257'
+  - relpath: raw/The Great Wall of China.pt
+    md5: ef628aa16e6ee43d4ad398706e53859a
+    size: 200705324
+    cloud:
+      remote_storage:
+        etag: 08e0d29dd0ce868b031001
+        version_id: '1737455636539744'
+  - relpath: raw/The Mona Lisa.pt
+    md5: 758e442d7c9846d34f502fa9d6c15303
+    size: 200705210
+    cloud:
+      remote_storage:
+        etag: 088da4c8cfce868b031001
+        version_id: '1737455635141133'
+  - relpath: raw/bear.pt
+    md5: 5205b2abfc3d6619c3e092102b40643a
+    size: 200705101
+    cloud:
+      remote_storage:
+        etag: 088edef69fce868b031001
+        version_id: '1737455535238926'
+  - relpath: raw/broccoli.pt
+    md5: 327eb2f54c8fce79436a2995c6ea802d
+    size: 200705185
+    cloud:
+      remote_storage:
+        etag: 08c09bd5cfce868b031001
+        version_id: '1737455635353024'
+  - relpath: raw/bush.pt
+    md5: 7bc7dd172a4afdb00cd01ac05d17eb41
+    size: 200705101
+    cloud:
+      remote_storage:
+        etag: 08eaa991d0ce868b031001
+        version_id: '1737455636337898'
+  - relpath: raw/cake.pt
+    md5: e6833e5f5c9a58165011ddf374e8fa22
+    size: 200705101
+    cloud:
+      remote_storage:
+        etag: 0883fc82d0ce868b031001
+        version_id: '1737455636102659'
+  - relpath: raw/cloud.pt
+    md5: a3484b79a8a7eaebadd1ab17f3ccd978
+    size: 200705106
+    cloud:
+      remote_storage:
+        etag: 088883d9d0ce868b031001
+        version_id: '1737455637512584'
+  - relpath: raw/moustache.pt
+    md5: 3b2485f19ac0e6de3f9ce59a286a4a2d
+    size: 200705190
+    cloud:
+      remote_storage:
+        etag: 08aca49ed0ce868b031001
+        version_id: '1737455636550188'
+  - relpath: raw/mouth.pt
+    md5: 72326721f1c929ba76012ce6f8c9457c
+    size: 200705106
+    cloud:
+      remote_storage:
+        etag: 08c2b7d6cfce868b031001
+        version_id: '1737455635372994'
+  - relpath: raw/sea turtle.pt
+    md5: 8608cd96d86ebbc4fcb11da09396ba54
+    size: 200705195
+    cloud:
+      remote_storage:
+        etag: 08c8e2faccce868b031001
+        version_id: '1737455629676872'
