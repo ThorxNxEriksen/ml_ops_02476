@@ -8,10 +8,15 @@ import wandb
 
 DEVICE = torch.device("mps" if torch.torch.backends.mps.is_built() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
-def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5, gcp_bucket: bool = False) -> None:
+def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 5, gcp_bucket: bool = False, secret_manager: bool = False) -> None:
     """Train a model on the 'Quick, Draw!' dataset with validation."""
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
+
+    if secret_manager:
+        wandb.login(key="4359ea2ef73a2790826a8f0b8fad581d23ca3b68")
+
+    # Initialize wandb
     run = wandb.init(
         project="train_wandb",
         config={"lr": lr, "batch_size": batch_size, "epochs": epochs},
