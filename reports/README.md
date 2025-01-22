@@ -111,23 +111,15 @@ will check the repositories and the code to verify your answers.
 * [ ] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
-
-
-If possible no work in cloud
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [x] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
-
-.
-
-* [ ] Create a FastAPI application that can do inference using your model (M22)
-      
-      Working on it
+* [x] Create a FastAPI application that can do inference using your model (M22)
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
-* [ ] Write API tests for your application and setup continues integration for these (M24)
-* [ ] Load test your application (M24)
+* [x] Write API tests for your application and setup continues integration for these (M24)
+* [x] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
-* [ ] Create a frontend for your API (M26)
+* [x] Create a frontend for your API (M26)
 
 ### Week 3
 
@@ -275,7 +267,7 @@ We implemented 2 tests, one test for the model and one for the data. The tests a
 >
 > Answer:
 
-The total code coverage of our project is [X]%, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests—it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
+The total code coverage of our project is 42%, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests — it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
 
 Additionally, there are certain types of issues, like race conditions or hardware-specific bugs, that can’t be caught by typical tests. While high coverage is a great starting point and shows that the code has been exercised thoroughly, it’s not the whole picture. To really trust the code, it’s important to combine high coverage with thoughtful test design, edge case validation, and other testing strategies like integration and stress testing.
 
@@ -324,7 +316,11 @@ We used DVC to push our data to Google Cloud and for version control. The data c
 >
 > Answer:
 
---- question 11 fill here ---
+We use three different types of continuous integration: Unit testing is done in [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), this includes testing the data, our model and the API. During development, we ran 6 different versions: Python 3.11 and 3.12 on Windows, Ubuntu and MacOS, but this used a lot of time on GitHub, so to avoid running out of compute time we reduced this to just checking with 3.11 on MacOS. This should be reverted once the project is stable and we no longer see as many commits. Linting is done in [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors.
+
+Both the unit tests and the linting is set to run on commits to main or pull requests.
+
+The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. 
 
 ## Running code and tracking experiments
 
@@ -430,7 +426,13 @@ The second image shows how the values of the hyperparameters change for each exp
 >
 > Answer:
 
---- question 17 fill here ---
+Cloud build - Builds the docker images on any commit to the `main` in the Github repo and pushes them to Artifact registry.
+
+Artifact registry - Stores the images created by Cloud build
+
+Engine - Runs a VM which can then run the containers based on the image retrieved from Artifact registry.
+
+Bucket - Stores data sets and (ideally) the latest model file generated from training in the Engine.
 
 ### Question 18
 

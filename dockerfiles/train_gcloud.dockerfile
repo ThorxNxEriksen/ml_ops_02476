@@ -18,8 +18,15 @@ COPY pyproject.toml pyproject.toml
 COPY models models/
 COPY reports reports/
 
+RUN mkdir -p /data/processed
+RUN mkdir -p /data/raw
+
 # Install the application
 RUN pip install . --no-deps --no-cache-dir --verbose
 
+# Download and prepare data
+RUN python src/quick_draw/data_download.py 
+RUN python src/quick_draw/data.py 
+
 # Set the entry point
-ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py", "--gcp-bucket", "--secret-manager"]
+ENTRYPOINT ["python", "-u", "src/quick_draw/train_wandb.py", "--no-gcp-bucket", "--secret-manager"]
