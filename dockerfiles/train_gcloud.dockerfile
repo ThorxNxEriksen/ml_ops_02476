@@ -4,8 +4,8 @@ FROM python:3.11-slim AS base
 # Install build dependencies
 RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc curl gnupg && \
-    echo "deb http://packages.cloud.google.com/apt gcsfuse-$(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/gcsfuse.list && \
-    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+    curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | tee /usr/share/keyrings/cloud.google.gpg > /dev/null && \
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt gcsfuse-bookworm main" | tee /etc/apt/sources.list.d/gcsfuse.list && \
     apt update && \
     apt install --no-install-recommends -y gcsfuse && \
     apt clean && rm -rf /var/lib/apt/lists/*
