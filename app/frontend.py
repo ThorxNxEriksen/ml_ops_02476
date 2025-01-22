@@ -41,11 +41,12 @@ def main() -> None:
 
         if result is not None:
             prediction = result["category"]
-            probabilities = result["confidence"]
+            confidence = result["confidence"]
 
             # show the image and prediction
             st.image(image, caption="Uploaded Image")
             st.write("Prediction:", prediction)
+            st.write("Confidence:", confidence)
 
             # make a nice bar chart
             # data = {"Class": [f"Class {i}" for i in range(10)], "Probability": probabilities}
