@@ -38,7 +38,7 @@ CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush',
 
 # Load model
 model = QuickDrawModel(num_classes=len(CATEGORIES))
-model_path = "/models/quickdraw_model.pth"
+model_path = "/models/quickdraw_model.pth" #Update this to reflect gsc
 model.load_state_dict(torch.load(model_path, map_location='cpu'))
 model.eval()
 

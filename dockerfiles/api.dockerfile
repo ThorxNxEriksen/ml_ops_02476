@@ -17,6 +17,5 @@ COPY pyproject.toml pyproject.toml
 RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 RUN pip install . --no-deps --no-cache-dir --verbose
 
-
-# CMD ["uvicorn", "app.backend_api:app", "--host", "0.0.0.0", "--port", "8000"]
 ENTRYPOINT ["uvicorn", "app.backend_api:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run using docker run --rm -p 8000:8000 api
