@@ -14,10 +14,12 @@ RUN pip install -r requirements.txt --no-cache-dir --verbose
 # Copy files
 COPY src src/
 COPY README.md README.md
-COPY data data/
 COPY pyproject.toml pyproject.toml
 COPY models models/
 COPY reports reports/
+
+RUN mkdir -p /data/processed
+RUN mkdir -p /data/raw
 
 # Install the application
 RUN pip install . --no-deps --no-cache-dir --verbose
