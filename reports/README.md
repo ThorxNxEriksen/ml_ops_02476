@@ -490,6 +490,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 > Answer:
 
 We managed to train the model on Engine, by building the `train_gcloud.dockerfile` in Cloud Build using a trigger and pushing it to Artifact Registry. Running the container in the VM, we had the model train on the data and connect to WandB. However, we had trouble connecting to our data bucket on mount, and therefore all the data is downloaded from an external server using the `quickdraw`-package. The model should ideally be saved in the data bucket, but is ATM only available via WandB.
+Since the current scope of the project isn't to add data progressively, we decided to move on. 
 
 ## Deployment
 
