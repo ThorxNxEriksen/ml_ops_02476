@@ -5,7 +5,7 @@ steps:
     'build',
     '.',
     '-t',
-    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image-nicki',
     '--progress=plain',
     '-f',
     'dockerfiles/train_gcloud.dockerfile'
@@ -24,7 +24,7 @@ steps:
   id: 'Push container image'
   args: [
     'push',
-    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image'
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image-nicki'
   ]
   
 #- "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/image2"
