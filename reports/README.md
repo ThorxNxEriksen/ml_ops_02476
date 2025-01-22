@@ -113,7 +113,7 @@ will check the repositories and the code to verify your answers.
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [x] Create a trigger workflow for automatically building your docker images (M21)
-* [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
+* [x] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [x] Create a FastAPI application that can do inference using your model (M22)
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [x] Write API tests for your application and setup continues integration for these (M24)
@@ -233,7 +233,7 @@ We have used the cookiecutter template pretty much as-is. We found it intuitive 
 > Answer:
 
 --- (Write more about our approach to this!) 
-In larger projects, these concepts are greatly importan for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
+In larger projects, these concepts are greatly important for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
 
 ## Version control
 
@@ -489,7 +489,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 22 fill here ---
+We managed to train the model on Engine, by building the `train_gcloud.dockerfile` in Cloud Build using a trigger and pushing it to Artifact Registry. Running the container in the VM, we had the model train on the data and connect to WandB. However, we had trouble connecting to our data bucket on mount, and therefore all the data is downloaded from an external server using the `quickdraw`-package. The model should ideally be saved in the data bucket, but is ATM only available via WandB.
 
 ## Deployment
 
