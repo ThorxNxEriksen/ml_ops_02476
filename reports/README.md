@@ -275,7 +275,7 @@ We implemented 2 tests, one test for the model and one for the data. The tests a
 >
 > Answer:
 
-The total code coverage of our project is [X]%, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests—it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
+The total code coverage of our project is 42%, but even if we had 100% coverage, it wouldn’t guarantee that the code is completely free of errors. Code coverage simply tells us how much of the code was executed during tests — it doesn’t measure the quality or completeness of the tests themselves. For example, tests might not account for edge cases or unusual inputs, and just because a piece of code runs during testing doesn’t mean it’s producing the correct results.
 
 Additionally, there are certain types of issues, like race conditions or hardware-specific bugs, that can’t be caught by typical tests. While high coverage is a great starting point and shows that the code has been exercised thoroughly, it’s not the whole picture. To really trust the code, it’s important to combine high coverage with thoughtful test design, edge case validation, and other testing strategies like integration and stress testing.
 
