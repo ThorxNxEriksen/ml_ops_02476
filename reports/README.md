@@ -384,8 +384,7 @@ In our project, we developed two essential Docker images to containerize our Qui
 >
 > Answer:
 
-The preferred debugging of all group members were to use the built-in debugger in Visual Studio code, as this is intuitive and easy to use. It worked well, and some team members also used GitHub co-pilot in addition to the built in debugger, to help resolve potential issues with the code. We were also good at helping each other in the group, if neither the debugger nor co-pilot could help solve the issue. We eventually did a primitive profiling run, which focused on the top 20 functions that took the most time. But since our model and setup is relatively simple, we did not have much time to gain by trying to improve these models, so we did not go further with this. 
-
+The preferred debugging of all group members were to use the built-in debugger in Visual Studio code, as this is intuitive and easy to use. It worked well, and some team members also used GitHub co-pilot in addition to the built in debugger, to help resolve potential issues with the code. We were also good at helping each other in the group, if neither the debugger nor co-pilot could help solve the issue. We eventually did a primitive profiling run, which focused on the top 20 functions that took the most time. But since our model and setup is relatively simple, we did not have much time to gain by trying to improve these functions, so we did not investigate this further. 
 
 ## Working in the cloud
 
