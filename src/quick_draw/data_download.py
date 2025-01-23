@@ -10,6 +10,21 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.logger import logger
 
 def load_data_categories(categories: List[str]):
+    """
+    Load data from QuickDrawDataGroup and save as .pt file.
+
+    Args:
+    -----
+        categories (List[str]): A list of category names to download.
+
+    Returns:
+    --------
+        None
+    
+    Saves:
+    ------
+        {category}.pt: The data (images for specific category) saved at .pt file.
+    """
     transform = transforms.Compose([
         transforms.Resize((224,224)),
         transforms.PILToTensor(), # More transformation will improve the model.
@@ -31,6 +46,22 @@ def load_data_categories(categories: List[str]):
         torch.save(images_tensor, f"data/raw/{category}.pt")
 
 def check_loaded_data(category: str, index: int):
+    """
+    Check the loaded data from .pt file by plotting the image.
+    
+    Args:
+    -----
+        category (str): The category name.
+        index (int): The index of the image to check.
+        
+    Returns:
+    --------
+        None
+    
+    Plots:
+    ------
+        The image of the category at the specified index
+    """
     data = torch.load(f'data/raw/{category}.pt', weights_only=True)
     # Convert tensor to NumPy and transpose to (255, 255, 3) for plt.imshow
     image = data[index].permute(1, 2, 0).numpy()
