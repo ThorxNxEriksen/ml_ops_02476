@@ -429,7 +429,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 19 fill here ---
+![image](figures/artifacts.png)
 
 ### Question 20
 
