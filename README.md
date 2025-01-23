@@ -53,7 +53,7 @@ The model architecture will be based on pre-trained models available through the
 
 The initial implementation will focus on fine-tuning these pre-trained models for sketch classification, with potential exploration of architectural modifications to better suit the specific characteristics of hand-drawn sketches.
 
-Documentation for the model can be found on this page: https://thorxnxeriksen.github.io/ml_ops_02476/
+Documentation for the model can be found on this page: https://thorxnxeriksen.github.io/ml_ops_02476/my_api/
 
 
 
