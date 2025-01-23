@@ -50,54 +50,26 @@ will check the repositories and the code to verify your answers.
 
 * [x] Create a git repository (M5)
 * [x] Make sure that all team members have write access to the GitHub repository (M5)
-* [x] Create a dedicated environment for you project to keep track of your packages (M2)
-      
-      You can set up the environment either by using Docker, which will spin up an environment based on the requirements.txt file,
-      or by manually creating one via the command line using the requirements.txt file.
-      
+* [x] Create a dedicated environment for you project to keep track of your packages (M2)      
 * [x] Create the initial file structure using cookiecutter with an appropriate template (M6)
 * [x] Fill out the `data.py` file such that it downloads whatever data you need and preprocesses it (if necessary) (M6)
 * [x] Add a model to `model.py` and a training procedure to `train.py` and get that running (M6)
 * [x] Remember to fill out the `requirements.txt` and `requirements_dev.txt` file with whatever dependencies that you
-    are using (M2+M6)
-
-      We are doing this, just remember to keep track and update when needed
-      
-
-* [ ] Remember to comply with good coding practices (`pep8`) while doing the project (M7)
-
-      If time permits it, look through the code and make it comply with good coding practices.
-      and/or use ruff and pretty while coding
-
-* [ ] Do a bit of code typing and remember to document essential parts of your code (M7)
-
-      This is an ongoing process. Data.py has documentation/docstrings and code typing.
-      
+    are using (M2+M6)      
+* [x] Remember to comply with good coding practices (`pep8`) while doing the project (M7)
+* [x] Do a bit of code typing and remember to document essential parts of your code (M7)
 * [x] Setup version control for your data or part of your data (M8)
-
-      Set this up (if possible) in the cloud way. Where we haven't made our own bucket, but uses an exisiting bucket.
-
 * [x] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [x] Construct one or multiple docker files for your code (M10)
-
-      There is some initial docker files. The train.dockerfile does work.
-      We do not use docker files for development, but only "production"/deployment
-
 * [x] Build the docker files locally and make sure they work as intended (M10)
-
-      This has been done, but will need to be redone before handin
-
 * [x] Write one or multiple configurations files for your experiments (M11)
       One config for Wandb sweep exists.
 * [ ] Used Hydra to load the configurations and manage your hyperparameters (M11)
 * [x] Use profiling to optimize your code (M12)
 * [x] Use logging to log important events in your code (M14)
-      Not wandb use from loguru import logger
 * [x] Use Weights & Biases to log training progress and other important metrics/artifacts in your code (M14)
 * [x] Consider running a hyperparameter optimization sweep (M14)
 * [ ] Use PyTorch-lightning (if applicable) to reduce the amount of boilerplate in your code (M15)
-
-      Initial this might not be applicable
 
 
 ### Week 2
@@ -113,7 +85,7 @@ will check the repositories and the code to verify your answers.
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [x] Create a trigger workflow for automatically building your docker images (M21)
-* [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
+* [x] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [x] Create a FastAPI application that can do inference using your model (M22)
 * [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [x] Write API tests for your application and setup continues integration for these (M24)
@@ -123,7 +95,7 @@ will check the repositories and the code to verify your answers.
 
 ### Week 3
 
-* [ ] Check how robust your model is towards data drifting (M27)
+* [x] Check how robust your model is towards data drifting (M27)
 * [ ] Deploy to the cloud a drift detection API (M27)
 * [ ] Instrument your API with a couple of system metrics (M28)
 * [ ] Setup cloud monitoring of your instrumented application (M28)
@@ -134,12 +106,12 @@ will check the repositories and the code to verify your answers.
 
 ### Extra
 
-* [ ] Write some documentation for your application (M32)
-* [ ] Publish the documentation to GitHub Pages (M32)
-* [ ] Revisit your initial project description. Did the project turn out as you wanted?
-* [ ] Create an architectural diagram over your MLOps pipeline
-* [ ] Make sure all group members have an understanding about all parts of the project
-* [ ] Uploaded all your code to GitHub
+* [x] Write some documentation for your application (M32)
+* [x] Publish the documentation to GitHub Pages (M32)
+* [x] Revisit your initial project description. Did the project turn out as you wanted?
+* [x] Create an architectural diagram over your MLOps pipeline
+* [x] Make sure all group members have an understanding about all parts of the project
+* [x] Uploaded all your code to GitHub
 
 ## Group information
 
@@ -217,7 +189,7 @@ If a new team member were to only develop our classification model, spinning up 
 >
 > Answer:
 
-We have used the cookiecutter template pretty much as-is. We found it intuitive and fitting for our project, and we filled out the model.py and data.py along with the requirements.txt file first thing. However, we saw fit to split the src folder into two parts, a 'quick_draw' folder for all scripts relating to the data download and preprocessing as well as creating the model, and a 'utils' folder containing the script for logging. In this way we could better separate the different scripts we were developing, and split our scripts into those relevant for the data and model of the project, and helper scripts. 
+We have used the cookiecutter template pretty much as-is. We found it intuitive and fitting for our project, and we filled out the model.py and data.py along with the requirements.txt file first thing. However, we saw fit to split the src folder into two parts, a 'quick_draw' folder for all scripts relating to the data download and preprocessing as well as creating the model, and a 'utils' folder containing the script for logging. In this way we could better separate the different scripts we were developing, and split our scripts into those relevant for the data and model of the project, and helper scripts. Furthermore, we made an 'app' folder for python files and requirements files relating to running the inference model.
 
 ### Question 6
 
@@ -232,8 +204,7 @@ We have used the cookiecutter template pretty much as-is. We found it intuitive 
 >
 > Answer:
 
---- (Write more about our approach to this!) 
-In larger projects, these concepts are greatly importan for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
+Our approach was to follow the general guidelines of PEP8, and to write comments in the code where necessary. We coded with the goal in mind that the other team members would be able to understand and continue working on our cod. In larger projects, these concepts are greatly important for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
 
 ## Version control
 
@@ -252,7 +223,7 @@ In larger projects, these concepts are greatly importan for maintaining consiste
 >
 > Answer:
 
-We implemented 2 tests, one test for the model and one for the data. The tests are located i the 'test' folder provided by cookiecutter, and are triggered through GitHiub actions, which checks the tests.yml file, which points to the test folder. The test_data.py checks if a processed dataset exists, if the load and splitting of the data works, and if the preprocess function works. The test_model.py file tests the model using a random input, checking the output shape of the model, verifies whether the classifier layer of the model is trainable, and that the model does not get updated parameters except for in the layer called 'classifier', so that only this layer is trainable. 
+We implemented 3 tests, one test for the model, one for the API and one for the data. The tests are located in the 'test' folder provided by cookiecutter, and are triggered through GitHiub actions, which checks the tests.yml file, which points to the test folder. The `test_data.py` checks if a processed dataset exists, if the load and splitting of the data works, and if the preprocess function works. The `test_model.py` file tests the model using a random input, checking the output shape of the model, verifies whether the classifier layer of the model is trainable, and that the model does not get updated parameters except for in the layer called 'classifier', so that only this layer is trainable. The `test_api.py` tests FastAPI endpoints for root, prediction with/without image, and validates categories list in the backend API.
 
 ### Question 8
 
@@ -316,11 +287,15 @@ We used DVC to push our data to Google Cloud and for version control. The data c
 >
 > Answer:
 
-We use three different types of continuous integration: Unit testing is done in [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), this includes testing the data, our model and the API. During development, we ran 6 different versions: Python 3.11 and 3.12 on Windows, Ubuntu and MacOS, but this used a lot of time on GitHub, so to avoid running out of compute time we reduced this to just checking with 3.11 on MacOS. This should be reverted once the project is stable and we no longer see as many commits. Linting is done in [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors.
+Our continuous integration (CI) workflow is designed to ensure code quality and reliability through systematic testing and maintenance. We implemented unit testing via [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), which evaluates our data processing, model functionality, and API integration across different environments. Initially, we conducted testing across multiple Python versions (3.11 and 3.12) and operating systems, but this quickly consumed GitHub's computational resources. Therefore, we reduced our testing to Python 3.11 on MacOS, which is a bit more efficient while still performing the needed checks. We intend to revert to the full testing once the project does not have pull requests as frequently as during current development. 
+Our linting process uses Ruff through [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors. Both the unit tests and the linting is set to run on commits to main or when a pull request is created.
+The [Model documentation](https://thorxnxeriksen.github.io/ml_ops_02476/my_api/) is also updated on every push, with the [deploy_docs.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/deploy_docs.yaml)
 
-Both the unit tests and the linting is set to run on commits to main or pull requests.
+The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. Together, these tests ensure that we have a robust setup while not using too many resources during the development phase.
 
-The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. 
+[Linting](https://github.com/ThorxNxEriksen/ml_ops_02476/actions/runs/12931780546/job/36066467899)
+[Unit tests](https://github.com/ThorxNxEriksen/ml_ops_02476/actions/runs/12931780547/job/36066467867)
+[Deploy docs](https://github.com/ThorxNxEriksen/ml_ops_02476/actions/runs/12931780545/job/36066467837)
 
 ## Running code and tracking experiments
 
@@ -376,9 +351,9 @@ Version control of the config file sweep.yml and train_wandb.py is ensured throu
 
 As seen in the first picture, we have done 4 separate sweeps where we have looked at the loss and accuracy of both the validation and training set. For both of the accuracy graphs, the accuracy steadily increases, while the loss decreases for both the validation and training set, indicating that new and better combinations of the hyperparameters are found at each step.
 
-![image](https://github.com/user-attachments/assets/cc251372-4abe-4f2f-9349-047449337ab9)
+![image](https://github.com/user-attachments/assets/caa3ef6a-c6f6-44e7-87fa-a4b1b634fc79)
 
-The second image shows how the values of the hyperparameters change for each experiment. The 4 experiments are visualized in the second image, which shows what different combinations of these hyperparameters are being used for a given experiment. These hyperparameters are greatly important for model performance. The learning rate controls the size of updates to the model's weights, so a large learning rate might take steps that are too large and miss good values in between, while a smaller learning rate is much slower. The batch size determines the number of training samples each training iteration to compute the gradient and update the weights, so small batch sizes can introduce more noise, and while larger batches lead to more stable updates, they also require much more memory. Finally, number of epochs is the times that the entire dataset is put through the model. Too few might lead to overfitting, while too many can lead to overfitting. Getting these hyperparameters right is crucial for having a robust and well-performing model. 
+The second image shows how the values of the hyperparameters change for each experiment. The 4 experiments are visualized in the second image, which shows what different combinations of these hyperparameters are being used for a given experiment. These hyperparameters are greatly important for model performance. The learning rate controls the size of updates to the model's weights, so a large learning rate might take steps that are too large and miss good values in between, while a smaller learning rate is much slower. The batch size determines the number of training samples each training iteration to compute the gradient and update the weights, so small batch sizes can introduce more noise, and while larger batches lead to more stable updates, they also require much more memory. Finally, number of epochs is the times that the entire dataset is put through the model. Too few might lead to overfitting, while too many can lead to overfitting. Getting these hyperparameters right is crucial for having a robust and well-performing model. On the other hand we have not sacrificed much time for this step as we just wanted to prove that it works and focus on new, exiting functionalities more focused on the Operations part. 
 
 
 ### Question 15
@@ -394,7 +369,7 @@ The second image shows how the values of the hyperparameters change for each exp
 >
 > Answer:
 
---- question 15 fill here ---
+In our project, we developed two essential Docker images to containerize our Quick Draw classification model. The first image handles model training using our EfficientNet architecture, while the second serves our FastAPI inference endpoint. The training container can be executed (local) with customizable hyperparameters using: `docker run train:latest --lr 0.001 --batch_size 32 --epochs 1`. For deployment (local), we run our API container using: `docker run --rm -p 8000:8000 api_image:latest`, which exposes the FastAPI application for sketch classification predictions. Link to docker file: [train.dockerfile](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/dockerfiles/train.dockerfile)
 
 ### Question 16
 
@@ -409,7 +384,8 @@ The second image shows how the values of the hyperparameters change for each exp
 >
 > Answer:
 
---- question 16 fill here ---
+The preferred debugging of all group members were to use the built-in debugger in Visual Studio code, as this is intuitive and easy to use. It worked well, and some team members also used GitHub co-pilot in addition to the built in debugger, to help resolve potential issues with the code. We were also good at helping each other in the group, if neither the debugger nor co-pilot could help solve the issue. We eventually did a primitive profiling run, which focused on the top 20 functions that took the most time. But since our model and setup is relatively simple, we did not have much time to gain by trying to improve these models, so we did not go further with this. 
+
 
 ## Working in the cloud
 
@@ -447,7 +423,9 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 18 fill here ---
+The compute engine is the most important part of the Google Cloud Platform. We have used the Compute engine to create all the instances of our virtual machines (and let me tell you there have been a few versions...) from our docker images in the Google Cloud Platform Artifacts. We have used europe-west1 as the zone for hosting. Most virtual machine instances has been n1-standard-4 with increased storage. This choice was based on two factors:
+1. The n1 is one of the cheapest options
+2. The choice of saving the data in the docker container and the mere size of the requirements file resulted in memory errors for a standard n1.
 
 ### Question 19
 
@@ -456,7 +434,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 19 fill here ---
+![image](figures/artifacts.png)
 
 ### Question 20
 
@@ -465,7 +443,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 20 fill here ---
+![image](figures/cloud_buckets.png)
 
 ### Question 21
 
@@ -489,7 +467,8 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 22 fill here ---
+We managed to train the model on Engine, by building the `train_gcloud.dockerfile` in Cloud Build using a trigger and pushing it to Artifact Registry. Running the container in the VM, we had the model train on the data and connect to WandB. However, we had trouble connecting to our data bucket on mount, and therefore all the data is downloaded from an external server using the `quickdraw`-package. The model should ideally be saved in the data bucket, but is ATM only available via WandB.
+Since the current scope of the project isn't to add data progressively, we decided to move on. 
 
 ## Deployment
 
@@ -506,7 +485,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 23 fill here ---
+We successfully implemented a backend API for our QuickDraw classification model using FastAPI. We created a POST endpoint `/predict` that accepts image uploads in any common format (PNG, JPEG), converts them to grayscale, and applies the same preprocessing pipeline as our training data - resizing to 224x224 pixels using torchvision transforms. The API returns a JSON response containing both the predicted drawing category and a confidence score between 0 and 1.
 
 ### Question 24
 
@@ -537,7 +516,10 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 25 fill here ---
+For unit testing, we used pytest with FastAPI's TestClient to test API endpoints. We created mock images using PIL for testing the prediction endpoint, ensuring consistent test conditions. The tests covered basic functionality, error handling, and input validation.
+
+For load testing, we implemented Locust with a script simulating users making requests to both root and prediction endpoints. The script generated a 224x224 grayscale dummy image per user, reusing it across requests with 1-3 second intervals between actions. Our load testing revealed scalability: with 500 concurrent users and 50 users/second spawn rate, the API maintained 100% success rate. However, we identified two breaking points: first, when ramping up to 1000 users at 50 users/second, we observed 5% failure rate around 700 concurrent users. Second, with 500 users but faster spawn rate (100 users/second), failures began appearing at 300-400 concurrent users
+
 
 ### Question 26
 
@@ -552,7 +534,8 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 26 fill here ---
+We did not implement monitoring of our deployed model. We would have liked to, as we could then observe our model by tracking performance metrics like accuracy and per-class precision, detecting data distribution shifts, observing model behaviour such as misclassification patterns, and checking system health indicators like resource utilization and prediction error rates. These monitoring approaches would help us understand model performance, identify potential degradation, and inform timely retraining or fine-tuning decisions. By implementing continuous monitoring, we can proactively maintain the model's reliability and ensure it remains effective as data and classification requirements evolve over time.
+
 
 ## Overall discussion of project
 
@@ -571,7 +554,15 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 27 fill here ---
+In total, we spent $11.3 spread across various Google Cloud services:
+	Cloud Run	$0.00
+	Compute Engine	$10.37
+	Cloud Storage	$0.16
+	Networking	$0.28
+	Artifact Registry	$0.46
+Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase
+Since our dataset is 2GB and we only used one version, the load on the storage is low. This would also increase once we start updating our dataset and keeping multiple versions.
+Working in the cloud was a little frustrating, because very small changes in the local setups can take up to 10 minutes to show in the cloud build. Having said that, we also had bigger celebrations when the cloud ran because it felt a bit more real!
 
 ### Question 28
 
@@ -587,7 +578,15 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 28 fill here ---
+We implemented a front-end for our API using Streamlit. This worked by making a docker image containing all the files and code used for the inference API and the Streamlit page, which was then deployed. We wanted a nicer interface for the API, instead of using the interface provided by FastAPI, and so we decided to make this in Streamlit. In the Streamlit appliciation, a user can upload an image of any format, and the API will use our model to classify the image, return a classification and a confidence score. The Streamlit page can be seen in the image below: 
+![image](https://github.com/user-attachments/assets/eac61a5a-e99f-495d-a92a-64372db4b057)
+
+
+We also implemented drift detection using Evidently, where we compared our training set to out test set, to check if the test set is a good representation of our training set (and because we did not have any obvious way to split out data in current and historical). The metrics used for drift detection are number of pixels, mean intensity and labels. We discovered no data drift, which can be seen below: 
+![image](https://github.com/user-attachments/assets/fa2010f5-b7ae-47f8-a625-d310437e71d6)
+
+
+
 
 ### Question 29
 
@@ -603,8 +602,16 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 > *Whenever we commit code and push to GitHub, it auto triggers ... and ... . From there the diagram shows ...*
 >
 > Answer:
+![image](https://github.com/user-attachments/assets/45b321a2-3373-4827-82da-955e599f411c)
 
---- question 29 fill here ---
+Developers can code on their own laptops and commit and push changes to the GitHub repository for version control. GitHub Actions include unit tests, Ruff for linting, and Dependabot for updating dependency versions in requirements.txt which automatically activate at each push/PR to main. Pushing to any branch triggers a cloud build that creates a Docker image, which is stored in Google Cloud Platform (GCP) Artifacts. A virtual machine can be initialized from the Docker image to train the model in the cloud. Experiment logs are saved via Weights & Biases (wandb), both those run locally and in the cloud. Wandb both logs statistics such as accuracy and loss but also saves the model in its Artifacts folder (with version control). Additionally, another Docker image can be initialized for the FastAPI, which uses Streamlit as the frontend.
+
+The data is version controlled using DVC and is connected to the storage in the Google GCP data bucket.
+
+Users have three options for interacting with our program:
+- Pull the latest image for training or API.
+- Clone the code or read the documentation for classes and functions.
+- Query the server with an image for classification. The user will receive the most probable class of that image. 
 
 ### Question 30
 
@@ -618,7 +625,16 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 30 fill here ---
+The biggest challenge we faced during the project was working with Google Cloud Platform (GCP). Setting up and integrating the modules proved to be very difficult. Each small change required rebuilding the Docker image, which resulted in significant waiting times. We encountered numerous errors along the way, but we managed to resolve most of them through troubleshooting with Google and ChatGPT.
+
+However, the biggest challenge was mounting the data. According to Nicki's answer on Slack, this process was supposed to be automatic, which added to our confusion when it didn't work as expected. After spending two days trying to resolve this issue, we ultimately decided that it wasn't worth further delays. Instead, we opted to download and process the data within the container on the cloud.
+
+Running the API and frontend on the cloud presented another set of challenges. We encountered several issues related to configuration and deployment, which required extensive debugging and adjustments. Despite these hurdles, we managed to get the system up and running, but it took a significant amount of time and effort.
+
+As mentioned in other questions: Working in the cloud was frustrating but we also had bigger celebrations when the cloud ran because it felt a bit more real!
+
+
+
 
 ### Question 31
 
@@ -635,4 +651,14 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 31 fill here ---
+There was an emphasis from the group that everyone should be involved in the code, especially in understanding the general overview and elements of the code. Generally, the tasks that were ongoing included Docker, code typing, and writing the report which everyone contributed to.
+
+
+| Student nr. | Contribution |
+|----------|----------|
+| s204606    | ML model, Documentation |
+| s204618    | Fronted API, Streamlit app, API integration into cloud   |
+| s204621    | Backend API, Load test, Test of API   |
+| s214659    | Cloud, WandB, ML model  |
+| s214983    | Cloud, Github workflow, unit test  |
+

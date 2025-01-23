@@ -1,4 +1,4 @@
-site_name: quick_draw
+site_name: quick draw mlops
 site_author: Christiansen, Eriksen, Hyllinge, Mondrup, Schmidt
 docs_dir: source
 
@@ -14,10 +14,14 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths: [..]
           options:
-            show_root_heading: true
+            show_root_heading: false
             separate_signature: true
             show_signature_annotations: true
+            show_source: true
+
 
 nav:
   - Home: index.md
+  - model: my_api.md

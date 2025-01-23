@@ -120,6 +120,18 @@ def preprocess(categories: List[str], train_ratio: float, val_ratio: float):
     torch.save(test_dataset, 'data/processed/test_dataset.pt')
 
 def load_dataset(dataset_name: str, gcp_bucket: bool = False) -> TensorDataset:
+    """
+    Loads a dataset from a .pt file.
+
+    Args:
+    -----
+        dataset_name (str): The name of the dataset to load [train/val/test].
+        gcp_bucket (bool): Whether to load the dataset from a GCP bucket (doesn't work).
+
+    Returns:
+    --------
+        TensorDataset: The loaded dataset.
+    """
     if gcp_bucket:
         dataset = torch.load(f'/gcs/quickdraw-databucket/data/processed/{dataset_name}_dataset.pt', weights_only=False)
     else:
