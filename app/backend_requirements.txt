@@ -1,0 +1,11 @@
+# Running the model
+torch==2.5.1
+torchvision==0.20.1
+timm==1.0.13
+
+# Setting up the API
+fastapi==0.115.6
+uvicorn==0.34.0
+
+# File Handling for FastAPI
+python-multipart==0.0.6

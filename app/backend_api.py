@@ -16,9 +16,9 @@ import sys
 #    -F 'file=@/mnt/c/Users/ThorNørgaardEriksen/OneDrive - Intellishore/3. Privat/2. Studie/2. Kurser/mlOps 02476/wall_test.png;type=image/png'
 
 
-# Add src to sys.path
-#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'src')))
-from src.quick_draw.model import QuickDrawModel
+# Add src to sys.path, in order to properly import the QuickDrawModel
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'src')))
+from quick_draw.model import QuickDrawModel
 
 
 app = FastAPI()
@@ -38,8 +38,10 @@ CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush',
 
 # Load model
 model = QuickDrawModel(num_classes=len(CATEGORIES))
-model_path = "models/quickdraw_model.pth" #Update this to reflect gsc
-model.load_state_dict(torch.load(model_path, map_location='cpu', weights_only=True))
+model_path = "models/quickdraw_model.pth" #Update this to reflect if possible
+print("THE FOLDER IS:", os.getcwd())
+print("THE PATH IS: ",model_path)
+model.load_state_dict(torch.load(model_path, map_location='cpu'))
 model.eval()
 
 @app.get("/")
@@ -76,4 +78,5 @@ async def predict(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8080))  # Use PORT from the environment, default to 8080
+    uvicorn.run(app, host="0.0.0.0", port=port)

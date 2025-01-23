@@ -1,0 +1,8 @@
+# Build frontend
+streamlit==1.41.1
+
+# Send API
+requests==2.32.3
+
+# Get the server where the API is running on
+google-cloud-run==0.10.14
