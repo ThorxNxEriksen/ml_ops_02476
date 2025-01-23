@@ -2,6 +2,10 @@ import timm
 import torch.nn as nn
 
 class QuickDrawModel(nn.Module):
+    """"
+    A model for Quick, Draw! dataset using EfficientNet-lite0 as the base model.
+    It replaces the classifier layer to match the number of classes in our example.
+    """
     def __init__(self, num_classes=10):  # Adjust num_classes 
         super(QuickDrawModel, self).__init__()
 
