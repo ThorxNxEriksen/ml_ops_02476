@@ -16,7 +16,7 @@ RUN pip install -r requirements.txt --no-cache-dir --verbose
 RUN pip install . --no-deps --no-cache-dir --verbose
 
 EXPOSE 8080
-ENTRYPOINT ["sh", "-c", "uvicorn app.backend_api:app --host 0.0.0.0 --port ${PORT:-8000}"]
+ENTRYPOINT ["sh", "-c", "uvicorn app.backend_api:app --host 0.0.0.0 --port ${PORT:-8080}"]
 
 ## Run the api using
 # gcloud run deploy api \
@@ -24,7 +24,7 @@ ENTRYPOINT ["sh", "-c", "uvicorn app.backend_api:app --host 0.0.0.0 --port ${POR
 #     --region=europe-west1 \
 #     --platform=managed \
 #     --allow-unauthenticated \
-#     --memory=1Gi
+#     --memory=2Gi
 
 ##Test if the API is running
 # curl https://api-165617901385.europe-west1.run.app
