@@ -288,9 +288,14 @@ We used DVC to push our data to Google Cloud and for version control. The data c
 > Answer:
 
 Our continuous integration (CI) workflow is designed to ensure code quality and reliability through systematic testing and maintenance. We implemented unit testing via [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), which evaluates our data processing, model functionality, and API integration across different environments. Initially, we conducted testing across multiple Python versions (3.11 and 3.12) and operating systems, but this quickly consumed GitHub's computational resources. Therefore, we reduced our testing to Python 3.11 on MacOS, which is a bit more efficient while still performing the needed checks. We intend to revert to the full testing once the project does not have pull requests as frequently as during current development. 
-Our linting process uses Ruff through [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors. Both the unit tests and the linting is set to run on commits to main or when a pull request is created. 
+Our linting process uses Ruff through [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors. Both the unit tests and the linting is set to run on commits to main or when a pull request is created.
+The [Model documentation](https://thorxnxeriksen.github.io/ml_ops_02476/my_api/) is also updated on every push, with the [deploy_docs.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/deploy_docs.yaml)
 
-The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. Together, these tests ensure that we have a robust setup while not using too many resources during the development phase. 
+The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. Together, these tests ensure that we have a robust setup while not using too many resources during the development phase.
+
+[Linting](https://github.com/ThorxNxEriksen/ml_ops_02476/actions/runs/12931780546/job/36066467899)
+[Unit tests](https://github.com/ThorxNxEriksen/ml_ops_02476/actions/runs/12931780547/job/36066467867)
+[Deploy docs](https://github.com/ThorxNxEriksen/ml_ops_02476/actions/runs/12931780545/job/36066467837)
 
 ## Running code and tracking experiments
 
