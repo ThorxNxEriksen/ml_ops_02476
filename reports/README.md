@@ -522,7 +522,7 @@ We successfully implemented a backend API for our QuickDraw classification model
 
 For unit testing, we used pytest with FastAPI's TestClient to test API endpoints. We created mock images using PIL for testing the prediction endpoint, ensuring consistent test conditions. The tests covered basic functionality, error handling, and input validation.
 
-For load testing, we implemented Locust with a script simulating users making requests to both root and prediction endpoints. The script generated a 224x224 grayscale dummy image per user, reusing it across requests with 1-3 second intervals between actions. Our load testing revealed scalability: with 500 concurrent users and 50 users/second spawn rate, the API maintained 100% success rate. However, we identified two breaking points: first, when ramping up to 1000 users at 50 users/second, we observed 5% failure rate around 700 concurrent users. Second, with 500 users but faster spawn rate (100 users/second), failures began appearing at 300-400 concurrent users
+For load testing, we implemented Locust with a script simulating users making requests to both root and prediction endpoints. The script generated a 224x224 grayscale dummy image per user, reusing it across requests with 1-3 second intervals between actions. Our load testing revealed scalability: with 500 concurrent users and 50 users/second spawn rate, the API maintained 100% success rate. However, we identified two breaking points: first, when ramping up to 1000 users at 50 users/second, we observed 5% failure rate around 700 concurrent users. Second, with 500 users but faster spawn rate (100 users/second), failures began appearing at 300-400 concurrent users.
 
 
 ### Question 26
@@ -565,7 +565,7 @@ In total, we spent $11.3 spread across various Google Cloud services:
 *	Networking	$0.28
 *	Artifact Registry	$0.46
   
-Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase
+Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase. 
 Since our dataset is 2GB and we only used one version, the load on the storage is low. This would also increase once we start updating our dataset and keeping multiple versions.
 Working in the cloud was a little frustrating, because very small changes in the local setups can take up to 10 minutes to show in the cloud build. Having said that, we also had bigger celebrations when the cloud ran because it felt a bit more real!
 
