@@ -8,8 +8,8 @@ RUN apt update && \
 COPY ./src /src
 COPY ./app /app
 COPY ./models /models
-# COPY app/backend_requirements.txt requirements.txt
-COPY requirements.txt requirements.txt
+COPY app/backend_requirements.txt requirements.txt
+# COPY requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
 
 RUN pip install -r requirements.txt --no-cache-dir --verbose
