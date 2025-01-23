@@ -1,6 +1,6 @@
 steps:
 # Build training image
-  - name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/docker'
   id: 'Build container image'
   args: [
     'build',
