@@ -364,7 +364,7 @@ The second image shows how the values of the hyperparameters change for each exp
 >
 > Answer:
 
-In our project, we developed two essential Docker images to containerize our Quick Draw classification model. The first image handles model training using our EfficientNet architecture, while the second serves our FastAPI inference endpoint. The training container can be executed (local) with customizable hyperparameters using: `docker run train:latest --lr 0.001 --batch_size 32 --epochs 1`. For deployment (local), we run our API container using: `docker run --rm -p 8000:8000 api_image:latest`, which exposes the FastAPI application for sketch classification predictions. 
+In our project, we developed two essential Docker images to containerize our Quick Draw classification model. The first image handles model training using our EfficientNet architecture, while the second serves our FastAPI inference endpoint. The training container can be executed (local) with customizable hyperparameters using: `docker run train:latest --lr 0.001 --batch_size 32 --epochs 1`. For deployment (local), we run our API container using: `docker run --rm -p 8000:8000 api_image:latest`, which exposes the FastAPI application for sketch classification predictions. Link to docker file: [train.dockerfile](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/dockerfiles/train.dockerfile)
 
 ### Question 16
 
