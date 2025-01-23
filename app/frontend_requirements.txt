@@ -1,0 +1,5 @@
+# Build frontend
+streamlit==1.41.1
+
+#Send API
+requests==2.32.3

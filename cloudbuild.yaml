@@ -19,6 +19,26 @@ steps:
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image'
   ]
 
+# Build and push frontend
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Build frontend container image'
+  args: [
+    'build',
+    '.',
+    '-t',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/frontend_image',
+    '--progress=plain',
+    '-f',
+    'dockerfiles/frontend.dockerfile'
+  ] 
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Push frontend container image'
+  args: [
+    'push',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/frontend_image'
+  ]
+
 # # # - name: 'gcr.io/cloud-builders/docker'
 # # #   id: 'Build container image'
 # # #   args: [

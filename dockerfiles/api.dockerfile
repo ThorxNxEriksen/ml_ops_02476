@@ -8,17 +8,23 @@ RUN apt update && \
 COPY ./src /src
 COPY ./app /app
 COPY ./models /models
-COPY requirements.txt requirements.txt
-COPY requirements_dev.txt requirements_dev.txt
-# COPY README.md README.md
+COPY app/backend_requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
 
 RUN pip install -r requirements.txt --no-cache-dir --verbose
-# RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 RUN pip install . --no-deps --no-cache-dir --verbose
 
 EXPOSE 8080
-# ENTRYPOINT ["uvicorn", "app.backend_api:app", "--host", "0.0.0.0", "--port", "${PORT:-8000}"]
 ENTRYPOINT ["sh", "-c", "uvicorn app.backend_api:app --host 0.0.0.0 --port ${PORT:-8000}"]
 
-# Run using docker run --rm -p 8000:8000 api
+## Run the api using
+# gcloud run deploy api \
+#     --image=europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/api_image:latest \
+#     --region=europe-west1 \
+#     --platform=managed \
+#     --allow-unauthenticated \
+#     --memory=1Gi
+
+
+## Stop the api using
+# gcloud run services delete api     --region=europe-west1     --platform=managed

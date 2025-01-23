@@ -16,7 +16,7 @@ import sys
 #    -F 'file=@/mnt/c/Users/ThorNørgaardEriksen/OneDrive - Intellishore/3. Privat/2. Studie/2. Kurser/mlOps 02476/wall_test.png;type=image/png'
 
 
-# Add src to sys.path
+# Add src to sys.path, in order to properly import the QuickDrawModel
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'src')))
 from quick_draw.model import QuickDrawModel
 
@@ -38,7 +38,7 @@ CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush',
 
 # Load model
 model = QuickDrawModel(num_classes=len(CATEGORIES))
-model_path = "/models/quickdraw_model.pth" #Update this to reflect gsc
+model_path = "/models/quickdraw_model.pth" #Update this to reflect if possible
 model.load_state_dict(torch.load(model_path, map_location='cpu'))
 model.eval()
 

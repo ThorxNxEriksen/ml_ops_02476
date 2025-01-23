@@ -1,20 +1,26 @@
 import os
-
-import pandas as pd
 import requests
 import streamlit as st
 from google.cloud import run_v2
 
 def get_backend_url():
     """Get the URL of the backend service."""
-    # parent = "projects/my-personal-mlops-project/locations/europe-west1"
-    # client = run_v2.ServicesClient()
-    # services = client.list_services(parent=parent)
-    # for service in services:
-    #     if service.name.split("/")[-1] == "production-model":
-    #         return service.uri
-    # return os.environ.get("BACKEND", None)
-    return "http://0.0.0.0:8000"
+    # Set the parent project and location for the Cloud Run service
+    parent = "projects/quickdrawproject-448508/locations/europe-west1"
+
+    # Initialize the Cloud Run client
+    client = run_v2.ServicesClient()
+
+    # List all services in the specified location
+    services = client.list_services(parent=parent)
+
+    # Look for the service named "api"
+    for service in services:
+        if service.name.split("/")[-1] == "api":
+            return service.uri  # Return the URL of the backend service
+
+    # If the service is not found, fall back to an environment variable
+    return os.environ.get("BACKEND", None)
 
 def classify_image(image, backend):
     """Send the image to the backend for classification."""
@@ -47,12 +53,6 @@ def main() -> None:
             st.image(image, caption="Uploaded Image")
             st.write("Prediction:", prediction)
             st.write("Confidence:", confidence)
-
-            # make a nice bar chart
-            # data = {"Class": [f"Class {i}" for i in range(10)], "Probability": probabilities}
-            # df = pd.DataFrame(data)
-            # df.set_index("Class", inplace=True)
-            # st.bar_chart(df, y="Probability")
         else:
             st.write("Failed to get prediction")
 
