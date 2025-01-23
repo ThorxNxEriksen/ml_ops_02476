@@ -384,8 +384,7 @@ In our project, we developed two essential Docker images to containerize our Qui
 >
 > Answer:
 
-The preferred debugging of all group members were to use the built-in debugger in Visual Studio code, as this is intuitive and easy to use. It worked well, and some team members also used GitHub co-pilot in addition to the built in debugger, to help resolve potential issues with the code. We were also good at helping each other in the group, if neither the debugger nor co-pilot could help solve the issue. We eventually did a primitive profiling run, which focused on the top 20 functions that took the most time. But since our model and setup is relatively simple, we did not have much time to gain by trying to improve these models, so we did not go further with this. 
-
+The preferred debugging of all group members were to use the built-in debugger in Visual Studio code, as this is intuitive and easy to use. It worked well, and some team members also used GitHub co-pilot in addition to the built in debugger, to help resolve potential issues with the code. We were also good at helping each other in the group, if neither the debugger nor co-pilot could help solve the issue. We eventually did a primitive profiling run, which focused on the top 20 functions that took the most time. But since our model and setup is relatively simple, we did not have much time to gain by trying to improve these functions, so we did not investigate this further. 
 
 ## Working in the cloud
 
@@ -452,7 +451,8 @@ The compute engine is the most important part of the Google Cloud Platform. We h
 >
 > Answer:
 
---- question 21 fill here ---
+![image](https://github.com/user-attachments/assets/b2228bc5-d1f2-429f-b6f2-59afd1b46c5b)
+
 
 ### Question 22
 
@@ -485,7 +485,11 @@ Since the current scope of the project isn't to add data progressively, we decid
 >
 > Answer:
 
-We successfully implemented a backend API for our QuickDraw classification model using FastAPI. We created a POST endpoint `/predict` that accepts image uploads in any common format (PNG, JPEG), converts them to grayscale, and applies the same preprocessing pipeline as our training data - resizing to 224x224 pixels using torchvision transforms. The API returns a JSON response containing both the predicted drawing category and a confidence score between 0 and 1.
+We successfully implemented a backend API for our QuickDraw classification model using FastAPI. We created a POST endpoint `/predict` that accepts image uploads in any common format (PNG, JPEG), and with any size, converts them to grayscale, and applies the same preprocessing pipeline as our training data - resizing to 224x224 pixels using torchvision transforms. The API uses our machine learning model to classify the image inputted in the FastAPI interface, and returns a JSON response containing both the predicted drawing category and a confidence score between 0 and 1. The API can be run using the following commands: 
+1. `curl -X 'POST' \` 
+2. `'http://127.0.0.1:8000/predict' \`
+3. `-H 'accept: application/json' \`
+4. `-H 'Content-Type: multipart/form-data' \`
 
 ### Question 24
 
@@ -501,7 +505,7 @@ We successfully implemented a backend API for our QuickDraw classification model
 >
 > Answer:
 
---- question 24 fill here ---
+The FastAPI was first implemented locally which worked without too many issues. In order to call the endpoint we used the curl as described above. We then moved the python script to a docker container. This had some more issues regarding fetching files from the different foldes. When we deployed to the cloud, there were significant issues. Some of the core solutions included setting the memory limit higher and configuring the port connection. Eventually we could build the docker image with triggers in GitHub, and deploy it using gcloud run. We used a similar structure for streamlit, making future runs of the services seamless.
 
 ### Question 25
 
@@ -518,7 +522,7 @@ We successfully implemented a backend API for our QuickDraw classification model
 
 For unit testing, we used pytest with FastAPI's TestClient to test API endpoints. We created mock images using PIL for testing the prediction endpoint, ensuring consistent test conditions. The tests covered basic functionality, error handling, and input validation.
 
-For load testing, we implemented Locust with a script simulating users making requests to both root and prediction endpoints. The script generated a 224x224 grayscale dummy image per user, reusing it across requests with 1-3 second intervals between actions. Our load testing revealed scalability: with 500 concurrent users and 50 users/second spawn rate, the API maintained 100% success rate. However, we identified two breaking points: first, when ramping up to 1000 users at 50 users/second, we observed 5% failure rate around 700 concurrent users. Second, with 500 users but faster spawn rate (100 users/second), failures began appearing at 300-400 concurrent users
+For load testing, we implemented Locust with a script simulating users making requests to both root and prediction endpoints. The script generated a 224x224 grayscale dummy image per user, reusing it across requests with 1-3 second intervals between actions. Our load testing revealed scalability: with 500 concurrent users and 50 users/second spawn rate, the API maintained 100% success rate. However, we identified two breaking points: first, when ramping up to 1000 users at 50 users/second, we observed 5% failure rate around 700 concurrent users. Second, with 500 users but faster spawn rate (100 users/second), failures began appearing at 300-400 concurrent users.
 
 
 ### Question 26
@@ -555,12 +559,13 @@ We did not implement monitoring of our deployed model. We would have liked to, a
 > Answer:
 
 In total, we spent $11.3 spread across various Google Cloud services:
-	Cloud Run	$0.00
-	Compute Engine	$10.37
-	Cloud Storage	$0.16
-	Networking	$0.28
-	Artifact Registry	$0.46
-Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase
+*	Cloud Run	$0.00
+*	Compute Engine	$10.37
+*	Cloud Storage	$0.16
+*	Networking	$0.28
+*	Artifact Registry	$0.46
+  
+Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase. 
 Since our dataset is 2GB and we only used one version, the load on the storage is low. This would also increase once we start updating our dataset and keeping multiple versions.
 Working in the cloud was a little frustrating, because very small changes in the local setups can take up to 10 minutes to show in the cloud build. Having said that, we also had bigger celebrations when the cloud ran because it felt a bit more real!
 
@@ -656,7 +661,7 @@ There was an emphasis from the group that everyone should be involved in the cod
 
 | Student nr. | Contribution |
 |----------|----------|
-| s204606    | ML model, Documentation |
+| s204606    | Data, ML model, Documentation |
 | s204618    | Fronted API, Streamlit app, API integration into cloud   |
 | s204621    | Backend API, Load test, Test of API   |
 | s214659    | Cloud, WandB, ML model  |
