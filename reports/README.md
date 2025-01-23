@@ -661,7 +661,7 @@ There was an emphasis from the group that everyone should be involved in the cod
 
 | Student nr. | Contribution |
 |----------|----------|
-| s204606    | ML model, Documentation |
+| s204606    | Data, ML model, Documentation |
 | s204618    | Fronted API, Streamlit app, API integration into cloud   |
 | s204621    | Backend API, Load test, Test of API   |
 | s214659    | Cloud, WandB, ML model  |
