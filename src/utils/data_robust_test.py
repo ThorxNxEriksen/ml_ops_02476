@@ -7,7 +7,7 @@ from evidently.metric_preset import DataDriftPreset
 from model import QuickDrawModel
 from data import load_dataset
 
-def extract_basic_features(dataset):
+def extract_basic_features(dataset: torch.utils.data.Dataset):
     """Extract simple statistical features from sketch images."""
     features_list = []
     
@@ -26,7 +26,7 @@ def extract_basic_features(dataset):
     
     return pd.DataFrame(features_list)
 
-def analyze_drift(reference_data, current_data):
+def analyze_drift(reference_data: pd.DataFrame, current_data: pd.DataFrame):
     """Generate drift report using Evidently."""
     report = Report(metrics=[DataDriftPreset()])
     report.run(reference_data=reference_data, current_data=current_data)
