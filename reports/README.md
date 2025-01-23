@@ -224,7 +224,7 @@ In larger projects, these concepts are greatly important for maintaining consist
 >
 > Answer:
 
-We implemented 2 tests, one test for the model and one for the data. The tests are located i the 'test' folder provided by cookiecutter, and are triggered through GitHiub actions, which checks the tests.yml file, which points to the test folder. The test_data.py checks if a processed dataset exists, if the load and splitting of the data works, and if the preprocess function works. The test_model.py file tests the model using a random input, checking the output shape of the model, verifies whether the classifier layer of the model is trainable, and that the model does not get updated parameters except for in the layer called 'classifier', so that only this layer is trainable. 
+We implemented 3 tests, one test for the model, one for the API and one for the data. The tests are located in the 'test' folder provided by cookiecutter, and are triggered through GitHiub actions, which checks the tests.yml file, which points to the test folder. The `test_data.py` checks if a processed dataset exists, if the load and splitting of the data works, and if the preprocess function works. The `test_model.py` file tests the model using a random input, checking the output shape of the model, verifies whether the classifier layer of the model is trainable, and that the model does not get updated parameters except for in the layer called 'classifier', so that only this layer is trainable. The `test_api.py` tests FastAPI endpoints for root, prediction with/without image, and validates categories list in the backend API.
 
 ### Question 8
 
