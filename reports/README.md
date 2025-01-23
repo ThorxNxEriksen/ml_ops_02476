@@ -553,7 +553,7 @@ In total, we spent $11.3 spread across various Google Cloud services:
 	Cloud Storage	$0.16
 	Networking	$0.28
 	Artifact Registry	$0.46
- Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase
+Spending the majority on compute makes sense. Even if our model is very quick to train we have spun up a bunch of different images while getting them to work. If we wanted to permanently run the API we would expect this to increase
 Since our dataset is 2GB and we only used one version, the load on the storage is low. This would also increase once we start updating our dataset and keeping multiple versions.
 Working in the cloud was a little frustrating, because very small changes in the local setups can take up to 10 minutes to show in the cloud build. Having said that, we also had bigger celebrations when the cloud ran because it felt a bit more real!
 
@@ -595,8 +595,16 @@ We also implemented drift detection using Evidently, where we compared our train
 > *Whenever we commit code and push to GitHub, it auto triggers ... and ... . From there the diagram shows ...*
 >
 > Answer:
+![image](https://github.com/user-attachments/assets/45b321a2-3373-4827-82da-955e599f411c)
 
---- question 29 fill here ---
+Developers can code on their own laptops and commit and push changes to the GitHub repository for version control. GitHub Actions include unit tests, Ruff for linting, and Dependabot for updating dependency versions in requirements.txt which automatically activate at each push/PR to main. Pushing to any branch triggers a cloud build that creates a Docker image, which is stored in Google Cloud Platform (GCP) Artifacts. A virtual machine can be initialized from the Docker image to train the model in the cloud. Experiment logs are saved via Weights & Biases (wandb), both those run locally and in the cloud. Wandb both logs statistics such as accuracy and loss but also saves the model in its Artifacts folder (with version control). Additionally, another Docker image can be initialized for the FastAPI, which uses Streamlit as the frontend.
+
+The data is version controlled using DVC and is connected to the storage in the Google GCP data bucket.
+
+Users have three options for interacting with our program:
+- Pull the latest image for training or API.
+- Clone the code or read the documentation for classes and functions.
+- Query the server with an image for classification. The user will receive the most probable class of that image. 
 
 ### Question 30
 
@@ -610,7 +618,16 @@ We also implemented drift detection using Evidently, where we compared our train
 >
 > Answer:
 
---- question 30 fill here ---
+The biggest challenge we faced during the project was working with Google Cloud Platform (GCP). Setting up and integrating the modules proved to be very difficult. Each small change required rebuilding the Docker image, which resulted in significant waiting times. We encountered numerous errors along the way, but we managed to resolve most of them through troubleshooting with Google and ChatGPT.
+
+However, the biggest challenge was mounting the data. According to Nicki's answer on Slack, this process was supposed to be automatic, which added to our confusion when it didn't work as expected. After spending two days trying to resolve this issue, we ultimately decided that it wasn't worth further delays. Instead, we opted to download and process the data within the container on the cloud.
+
+Running the API and frontend on the cloud presented another set of challenges. We encountered several issues related to configuration and deployment, which required extensive debugging and adjustments. Despite these hurdles, we managed to get the system up and running, but it took a significant amount of time and effort.
+
+As mentioned in other questions: Working in the cloud was frustrating but we also had bigger celebrations when the cloud ran because it felt a bit more real!
+
+
+
 
 ### Question 31
 
