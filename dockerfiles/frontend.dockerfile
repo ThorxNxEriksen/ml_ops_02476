@@ -14,5 +14,4 @@ RUN pip install -r requirements.txt --no-cache-dir --verbose
 # I should try to remove this
 # RUN pip install . --no-deps --no-cache-dir --verbose 
 
-
-ENTRYPOINT ["streamlit", "run", "app/frontend.py"]
+ENTRYPOINT ["streamlit", "run", "app/frontend.py", "--server.port", "8080", "--server.address", "0.0.0.0"]
