@@ -572,7 +572,8 @@ Working in the cloud was a little frustrating, because very small changes in the
 > Answer:
 
 We implemented a front-end for our API using Streamlit. This worked by making a docker image containing all the files and code used for the inference API and the Streamlit page, which was then deployed. We wanted a nicer interface for the API, instead of using the interface provided by FastAPI, and so we decided to make this in Streamlit. In the Streamlit appliciation, a user can upload an image of any format, and the API will use our model to classify the image, return a classification and a confidence score. The Streamlit page can be seen in the image below: 
-![image](https://github.com/user-attachments/assets/eac61a5a-e99f-495d-a92a-64372db4b057)
+![image](https://github.com/user-attachments/assets/a17d6527-c459-4822-8e05-9454a488f390)
+
 
 
 We also implemented drift detection using Evidently, where we compared our training set to out test set, to check if the test set is a good representation of our training set (and because we did not have any obvious way to split out data in current and historical). The metrics used for drift detection are number of pixels, mean intensity and labels. We discovered no data drift, which can be seen below: 
