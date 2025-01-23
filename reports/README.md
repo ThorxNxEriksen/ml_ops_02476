@@ -381,7 +381,8 @@ The second image shows how the values of the hyperparameters change for each exp
 >
 > Answer:
 
---- question 16 fill here ---
+The preferred debugging of all group members were to use the built-in debugger in Visual Studio code, as this is intuitive and easy to use. It worked well, and some team members also used GitHub co-pilot in addition to the built in debugger, to help resolve potential issues with the code. We were also good at helping each other in the group, if neither the debugger nor co-pilot could help solve the issue. We eventually did a primitive profiling run, which focused on the top 20 functions that took the most time. But since our model and setup is relatively simple, we did not have much time to gain by trying to improve these models, so we did not go further with this. 
+
 
 ## Working in the cloud
 
@@ -528,7 +529,8 @@ For load testing, we implemented Locust with a script simulating users making re
 >
 > Answer:
 
---- question 26 fill here ---
+We did not implement monitoring of our deployed model. We would have liked to, as we could then observe our model by tracking performance metrics like accuracy and per-class precision, detecting data distribution shifts, observing model behaviour such as misclassification patterns, and checking system health indicators like resource utilization and prediction error rates. These monitoring approaches would help us understand model performance, identify potential degradation, and inform timely retraining or fine-tuning decisions. By implementing continuous monitoring, we can proactively maintain the model's reliability and ensure it remains effective as data and classification requirements evolve over time.
+
 
 ## Overall discussion of project
 
@@ -571,9 +573,15 @@ Working in the cloud was a little frustrating, because very small changes in the
 >
 > Answer:
 
-Frontend for the API:
+We implemented a front-end for our API using Streamlit. This worked by making a docker image containing all the files and code used for the inference API and the Streamlit page, which was then deployed. We wanted a nicer interface for the API, instead of using the interface provided by FastAPI, and so we decided to make this in Streamlit. In the Streamlit appliciation, a user can upload an image of any format, and the API will use our model to classify the image, return a classification and a confidence score. The Streamlit page can be seen in the image below: 
+![image](https://github.com/user-attachments/assets/eac61a5a-e99f-495d-a92a-64372db4b057)
 
-Data monitoring:
+
+We also implemented drift detection using Evidently, where we compared our training set to out test set, to check if the test set is a good representation of our training set (and because we did not have any obvious way to split out data in current and historical). The metrics used for drift detection are number of pixels, mean intensity and labels. We discovered no data drift, which can be seen below: 
+![image](https://github.com/user-attachments/assets/fa2010f5-b7ae-47f8-a625-d310437e71d6)
+
+
+
 
 ### Question 29
 
