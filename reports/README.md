@@ -627,5 +627,5 @@ There was an emphasis from the group that everyone should be involved in the cod
 | s204618    | Fronted API, Streamlit app, API integration into cloud   |
 | s204621    | Backend API, Load test, Test of API   |
 | s214659    | Cloud, wandb, ML model  |
-| s214983    | Cloud, Github workflow  |
+| s214983    | Cloud, Github workflow, unit test  |
 
