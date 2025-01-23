@@ -30,7 +30,6 @@ matplotlib==3.10.0
 # Utilities
 tqdm==4.67.1
 pandas==2.2.3
-numpy==2.2.2
 
 
 protobuf==5.29.3
