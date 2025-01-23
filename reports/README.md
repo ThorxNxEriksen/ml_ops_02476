@@ -459,7 +459,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
-![image](reports/figures/cloud_buckets.png)
+![image](figures/cloud_buckets.png)
 
 ### Question 21
 
