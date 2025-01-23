@@ -10,7 +10,29 @@ import os
 DEVICE = torch.device("mps" if torch.torch.backends.mps.is_built() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
 def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 1, gcp_bucket: bool = False, secret_manager: bool = False) -> None:
-    """Train a model on the 'Quick, Draw!' dataset with validation."""
+    """
+    Train a model on the 'Quick, Draw!' dataset with validation.
+    
+    Args:
+    -----
+        lr (float): The learning rate of the optimizer.
+        batch_size (int): The batch size for training.
+        epochs (int): The number of epochs to train for.
+        gcp_bucket (bool): Whether to save the model to a GCP bucket.
+        secret_manager (bool): Whether to use the secret manager.
+    
+    Returns:
+    --------
+        None
+        
+    Saves:
+    ------
+        quickdraw_model.pth: The trained model.
+        training_and_validation_statistics.png: A plot of the training and validation statistics.
+    WandB:
+    ------
+        Logs the training and validation statistics
+    """
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
     print(os.getcwd())

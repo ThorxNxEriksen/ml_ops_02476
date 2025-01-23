@@ -7,7 +7,17 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def evaluate(model_checkpoint: str) -> None:
-    """Evaluate a trained model."""
+    """
+    Evaluate a trained model.
+
+    Args:
+    -----
+        model_checkpoint (str): The path to the model checkpoint.
+    
+    Returns:
+    --------
+        None
+    """
     print("Evaluating like my life depended on it")
     print(model_checkpoint)
 

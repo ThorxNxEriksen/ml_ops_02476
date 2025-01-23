@@ -8,7 +8,17 @@ from model import QuickDrawModel
 from data import load_dataset
 
 def extract_basic_features(dataset: torch.utils.data.Dataset):
-    """Extract simple statistical features from sketch images."""
+    """
+    Extract simple statistical features from sketch images.
+    
+    Args:
+    -----
+        dataset (torch.utils.data.Dataset): The dataset containing images.
+    
+    Returns:
+    --------
+        pd.DataFrame: A DataFrame containing the extracted features.
+    """
     features_list = []
     
     for img, label in dataset:
@@ -26,8 +36,23 @@ def extract_basic_features(dataset: torch.utils.data.Dataset):
     
     return pd.DataFrame(features_list)
 
-def analyze_drift(reference_data: pd.DataFrame, current_data: pd.DataFrame):
-    """Generate drift report using Evidently."""
+def analyze_drift(reference_data: pd.DataFrame, current_data: pd.DataFrame) -> None:
+    """
+    Generate drift report using Evidently.
+    
+    Args:
+    -----
+        reference_data (pd.DataFrame): The reference dataset.
+        current_data (pd.DataFrame): The current dataset.
+    
+    Returns:
+    --------
+        None
+    
+    Saves:
+    ------
+        data_drift_report.html: The drift report.
+    """
     report = Report(metrics=[DataDriftPreset()])
     report.run(reference_data=reference_data, current_data=current_data)
     
