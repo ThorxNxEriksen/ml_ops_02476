@@ -452,7 +452,8 @@ The compute engine is the most important part of the Google Cloud Platform. We h
 >
 > Answer:
 
---- question 21 fill here ---
+![image](https://github.com/user-attachments/assets/b2228bc5-d1f2-429f-b6f2-59afd1b46c5b)
+
 
 ### Question 22
 
