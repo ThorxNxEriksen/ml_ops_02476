@@ -15,7 +15,6 @@ jobs:
       matrix:
         operating-system: ["windows-latest"]
         #operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
-        #operating-system: ["ubuntu-latest"]
         #python-version: ["3.11", "3.12"]
         python-version: ["3.11"]
 
