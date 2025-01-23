@@ -204,8 +204,7 @@ We have used the cookiecutter template pretty much as-is. We found it intuitive 
 >
 > Answer:
 
---- (Write more about our approach to this!) 
-In larger projects, these concepts are greatly important for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
+Our approach was to follow the general guidelines of PEP8, and to write comments in the code where necessary. We coded with the goal in mind that the other team members would be able to understand and continue working on our cod. In larger projects, these concepts are greatly important for maintaining consistency and scalability. They help ensure that all developers follow the same coding practices, making the codebase easier to understand and work with. When a new developer joins the project, having clear and consistent practices allows them to quickly learn how to contribute without confusion, regardless of who is guiding their onboarding. Similarly, if a developer leaves the project, these practices make it easier for others to pick up and continue their work. By promoting uniformity and clarity, these concepts reduce misunderstandings and make the project more manageable for everyone involved.
 
 ## Version control
 
@@ -288,11 +287,10 @@ We used DVC to push our data to Google Cloud and for version control. The data c
 >
 > Answer:
 
-We use three different types of continuous integration: Unit testing is done in [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), this includes testing the data, our model and the API. During development, we ran 6 different versions: Python 3.11 and 3.12 on Windows, Ubuntu and MacOS, but this used a lot of time on GitHub, so to avoid running out of compute time we reduced this to just checking with 3.11 on MacOS. This should be reverted once the project is stable and we no longer see as many commits. Linting is done in [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors.
+Our continuous integration (CI) workflow is designed to ensure code quality and reliability through systematic testing and maintenance. We implemented unit testing via [tests.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/tests.yaml), which evaluates our data processing, model functionality, and API integration across different environments. Initially, we conducted testing across multiple Python versions (3.11 and 3.12) and operating systems, but this quickly consumed GitHub's computational resources. Therefore, we reduced our testing to Python 3.11 on MacOS, which is a bit more efficient while still performing the needed checks. We intend to revert to the full testing once the project does not have pull requests as frequently as during current development. 
+Our linting process uses Ruff through [codecheck.yaml](https://github.com/ThorxNxEriksen/ml_ops_02476/blob/main/.github/workflows/codecheck.yaml) running Ruff to fix simple code formatting errors. Both the unit tests and the linting is set to run on commits to main or when a pull request is created. 
 
-Both the unit tests and the linting is set to run on commits to main or pull requests.
-
-The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. 
+The cookiecutter template also implemented a monthly run of Dependabot which will check if there are updates for the packages in `requirements.txt` and `requirements-dev.txt`. Together, these tests ensure that we have a robust setup while not using too many resources during the development phase. 
 
 ## Running code and tracking experiments
 
