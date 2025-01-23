@@ -1,5 +1,25 @@
 steps:
-#This part builds and deploys the actual api
+# Build training image
+  - name: 'gcr.io/cloud-builders/docker'
+  id: 'Build container image'
+  args: [
+    'build',
+    '.',
+    '-t',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image',
+    '--progress=plain',
+    '-f',
+    'dockerfiles/train.dockerfile'
+  ]
+# Push training image
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Push container image'
+  args: [
+    'push',
+    'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image'
+  ]
+
+# Build API image
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Build api container image'
   args: [
@@ -11,7 +31,7 @@ steps:
     '-f',
     'dockerfiles/api.dockerfile'
   ] 
-
+# Push API image
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Push api container image'
   args: [
@@ -31,7 +51,6 @@ steps:
     '-f',
     'dockerfiles/frontend.dockerfile'
   ] 
-
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Push frontend container image'
   args: [
@@ -39,36 +58,6 @@ steps:
     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/frontend_image'
   ]
 
-# # # - name: 'gcr.io/cloud-builders/docker'
-# # #   id: 'Build container image'
-# # #   args: [
-# # #     'build',
-# # #     '.',
-# # #     '-t',
-# # #     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image',
-# # #     '--progress=plain',
-# # #     '-f',
-# # #     'dockerfiles/train_gcloud.dockerfile'
-# # #   ]
-
-# # # #- name: 'gcr.io/cloud-builders/docker'
-# # # #  args:
-# # # #    - build
-# # # #    - "-t"
-# # # #    - "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/evaluate"
-# # # #    - "--file=path/to/Dockerfile2"
-# # # #    - "."
-# # # # Add more steps as needed for additional Dockerfiles...
-
-# # # - name: 'gcr.io/cloud-builders/docker'
-# # #   id: 'Push container image'
-# # #   args: [
-# # #     'push',
-# # #     'europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/train-image'
-# # #   ]
-  
-# # # #- "europe-west1-docker.pkg.dev/quickdrawproject-448508/quickdraw-artifacts/image2"
-# # # # Add more image names as needed for additional Dockerfiles.
 
 
 options:
