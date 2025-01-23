@@ -38,7 +38,9 @@ CATEGORIES = ['bear', 'broccoli', 'cake', 'cloud', 'bush',
 
 # Load model
 model = QuickDrawModel(num_classes=len(CATEGORIES))
-model_path = "/models/quickdraw_model.pth" #Update this to reflect if possible
+model_path = "models/quickdraw_model.pth" #Update this to reflect if possible
+print("THE FOLDER IS:", os.getcwd())
+print("THE PATH IS: ",model_path)
 model.load_state_dict(torch.load(model_path, map_location='cpu'))
 model.eval()
 
