@@ -12,4 +12,4 @@ COPY pyproject.toml pyproject.toml
 RUN pip install -r requirements.txt --no-cache-dir --verbose
 RUN pip install . --no-deps --no-cache-dir --verbose
 
-ENTRYPOINT [ "streamlit run app.frontend" ]
+ENTRYPOINT ["streamlit", "run", "app/frontend.py"]

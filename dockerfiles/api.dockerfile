@@ -8,7 +8,8 @@ RUN apt update && \
 COPY ./src /src
 COPY ./app /app
 COPY ./models /models
-COPY app/backend_requirements.txt requirements.txt
+# COPY app/backend_requirements.txt requirements.txt
+COPY requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
 
 RUN pip install -r requirements.txt --no-cache-dir --verbose
@@ -25,6 +26,8 @@ ENTRYPOINT ["sh", "-c", "uvicorn app.backend_api:app --host 0.0.0.0 --port ${POR
 #     --allow-unauthenticated \
 #     --memory=1Gi
 
+##Test if the API is running
+# curl https://api-165617901385.europe-west1.run.app
 
 ## Stop the api using
 # gcloud run services delete api     --region=europe-west1     --platform=managed
