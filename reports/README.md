@@ -505,7 +505,7 @@ We successfully implemented a backend API for our QuickDraw classification model
 >
 > Answer:
 
---- question 24 fill here ---
+The FastAPI was first implemented locally which worked without too many issues. In order to call the endpoint we used the curl as described above. We then moved the python script to a docker container. This had some more issues regarding fetching files from the different foldes. When we deployed to the cloud, there were significant issues. Some of the core solutions included setting the memory limit higher and configuring the port connection. Eventually we could build the docker image with triggers in GitHub, and deploy it using gcloud run.
 
 ### Question 25
 
