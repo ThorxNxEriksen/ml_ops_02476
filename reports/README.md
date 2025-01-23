@@ -74,9 +74,6 @@ will check the repositories and the code to verify your answers.
       This is an ongoing process. Data.py has documentation/docstrings and code typing.
       
 * [x] Setup version control for your data or part of your data (M8)
-
-      Set this up (if possible) in the cloud way. Where we haven't made our own bucket, but uses an exisiting bucket.
-
 * [x] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [x] Construct one or multiple docker files for your code (M10)
 
@@ -84,9 +81,6 @@ will check the repositories and the code to verify your answers.
       We do not use docker files for development, but only "production"/deployment
 
 * [x] Build the docker files locally and make sure they work as intended (M10)
-
-      This has been done, but will need to be redone before handin
-
 * [x] Write one or multiple configurations files for your experiments (M11)
       One config for Wandb sweep exists.
 * [ ] Used Hydra to load the configurations and manage your hyperparameters (M11)
@@ -465,7 +459,7 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 20 fill here ---
+![image](reports/figures/cloud_buckets.png)
 
 ### Question 21
 
