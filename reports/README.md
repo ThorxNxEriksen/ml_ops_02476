@@ -418,7 +418,9 @@ Bucket - Stores data sets and (ideally) the latest model file generated from tra
 >
 > Answer:
 
---- question 18 fill here ---
+The compute engine is the most important part of the Google Cloud Platform. We have used the Compute engine to create all the instances of our virtual machines (and let me tell you there have been a few versions...) from our docker images in the Google Cloud Platform Artifacts. We have used europe-west1 as the zone for hosting. Most virtual machine instances has been n1-standard-4 with increased storage. This choice was based on two factors:
+1. The n1 is one of the cheapest options
+2. The choice of saving the data in the docker container and the mere size of the requirements file resulted in memory errors for a standard n1.
 
 ### Question 19
 
