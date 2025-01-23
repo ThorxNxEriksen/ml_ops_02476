@@ -217,7 +217,7 @@ If a new team member were to only develop our classification model, spinning up 
 >
 > Answer:
 
-We have used the cookiecutter template pretty much as-is. We found it intuitive and fitting for our project, and we filled out the model.py and data.py along with the requirements.txt file first thing. However, we saw fit to split the src folder into two parts, a 'quick_draw' folder for all scripts relating to the data download and preprocessing as well as creating the model, and a 'utils' folder containing the script for logging. In this way we could better separate the different scripts we were developing, and split our scripts into those relevant for the data and model of the project, and helper scripts. 
+We have used the cookiecutter template pretty much as-is. We found it intuitive and fitting for our project, and we filled out the model.py and data.py along with the requirements.txt file first thing. However, we saw fit to split the src folder into two parts, a 'quick_draw' folder for all scripts relating to the data download and preprocessing as well as creating the model, and a 'utils' folder containing the script for logging. In this way we could better separate the different scripts we were developing, and split our scripts into those relevant for the data and model of the project, and helper scripts. Furthermore, we made an 'app' folder for python files and requirements files relating to running the inference model.
 
 ### Question 6
 
