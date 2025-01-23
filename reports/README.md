@@ -632,11 +632,11 @@ We also implemented drift detection using Evidently, where we compared our train
 There was an emphasis from the group that everyone should be involved in the code, especially in understanding the general overview and elements of the code. Generally, the tasks that were ongoing included Docker, code typing, and writing the report which everyone contributed to.
 
 
-| Student nr. | contribution |
+| Student nr. | Contribution |
 |----------|----------|
-| s204606    | Ml model, Documentation,   |
+| s204606    | ML model, Documentation |
 | s204618    | Fronted API, Streamlit app, API integration into cloud   |
 | s204621    | Backend API, Load test, Test of API   |
-| s214659    | Cloud, wandb, ML model  |
+| s214659    | Cloud, WandB, ML model  |
 | s214983    | Cloud, Github workflow, unit test  |
 
