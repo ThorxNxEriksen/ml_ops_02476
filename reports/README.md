@@ -348,7 +348,7 @@ Version control of the config file sweep.yml and train_wandb.py is ensured throu
 
 As seen in the first picture, we have done 4 separate sweeps where we have looked at the loss and accuracy of both the validation and training set. For both of the accuracy graphs, the accuracy steadily increases, while the loss decreases for both the validation and training set, indicating that new and better combinations of the hyperparameters are found at each step.
 
-![image](https://github.com/user-attachments/assets/cc251372-4abe-4f2f-9349-047449337ab9)
+![image](https://github.com/user-attachments/assets/ab3f502e-9289-4ead-94e4-9da855252eda)
 
 The second image shows how the values of the hyperparameters change for each experiment. The 4 experiments are visualized in the second image, which shows what different combinations of these hyperparameters are being used for a given experiment. These hyperparameters are greatly important for model performance. The learning rate controls the size of updates to the model's weights, so a large learning rate might take steps that are too large and miss good values in between, while a smaller learning rate is much slower. The batch size determines the number of training samples each training iteration to compute the gradient and update the weights, so small batch sizes can introduce more noise, and while larger batches lead to more stable updates, they also require much more memory. Finally, number of epochs is the times that the entire dataset is put through the model. Too few might lead to overfitting, while too many can lead to overfitting. Getting these hyperparameters right is crucial for having a robust and well-performing model. 
 
