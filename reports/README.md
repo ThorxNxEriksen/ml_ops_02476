@@ -618,4 +618,14 @@ Data monitoring:
 >
 > Answer:
 
---- question 31 fill here ---
+There was an emphasis from the group that everyone should be involved in the code, especially in understanding the general overview and elements of the code. Generally, the tasks that were ongoing included Docker, code typing, and writing the report which everyone contributed to.
+
+
+| Student nr. | contribution |
+|----------|----------|
+| s204606    | Ml model, Documentation,   |
+| s204618    | Fronted API, Streamlit app, API integration into cloud   |
+| s204621    | Backend API, Load test, Test of API   |
+| s214659    | Cloud, wandb, ML model  |
+| s214983    | Cloud, Github workflow  |
+
