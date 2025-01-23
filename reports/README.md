@@ -486,7 +486,11 @@ Since the current scope of the project isn't to add data progressively, we decid
 >
 > Answer:
 
-We successfully implemented a backend API for our QuickDraw classification model using FastAPI. We created a POST endpoint `/predict` that accepts image uploads in any common format (PNG, JPEG), converts them to grayscale, and applies the same preprocessing pipeline as our training data - resizing to 224x224 pixels using torchvision transforms. The API returns a JSON response containing both the predicted drawing category and a confidence score between 0 and 1.
+We successfully implemented a backend API for our QuickDraw classification model using FastAPI. We created a POST endpoint `/predict` that accepts image uploads in any common format (PNG, JPEG), and with any size, converts them to grayscale, and applies the same preprocessing pipeline as our training data - resizing to 224x224 pixels using torchvision transforms. The API uses our machine learning model to classify the image inputted in the FastAPI interface, and returns a JSON response containing both the predicted drawing category and a confidence score between 0 and 1. The API can be run using the following command: 
+`curl -X 'POST' \`
+`'http://127.0.0.1:8000/predict' \`
+`-H 'accept: application/json' \`
+`-H 'Content-Type: multipart/form-data' \`
 
 ### Question 24
 
