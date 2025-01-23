@@ -510,7 +510,10 @@ Since the current scope of the project isn't to add data progressively, we decid
 >
 > Answer:
 
---- question 25 fill here ---
+For unit testing, we used pytest with FastAPI's TestClient to test API endpoints. We created mock images using PIL for testing the prediction endpoint, ensuring consistent test conditions. The tests covered basic functionality, error handling, and input validation.
+
+For load testing, we implemented Locust with a script simulating users making requests to both root and prediction endpoints. The script generated a 224x224 grayscale dummy image per user, reusing it across requests with 1-3 second intervals between actions. Our load testing revealed scalability: with 500 concurrent users and 50 users/second spawn rate, the API maintained 100% success rate. However, we identified two breaking points: first, when ramping up to 1000 users at 50 users/second, we observed 5% failure rate around 700 concurrent users. Second, with 500 users but faster spawn rate (100 users/second), failures began appearing at 300-400 concurrent users
+
 
 ### Question 26
 
