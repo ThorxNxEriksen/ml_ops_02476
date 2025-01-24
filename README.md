@@ -76,42 +76,65 @@ Documentation for the model can be found on this page: https://thorxnxeriksen.gi
 
 The directory structure of the project looks like this:
 ```txt
+├── .dvc
+│   └── config 
 ├── .github/                  # Github actions and dependabot
 │   ├── dependabot.yaml
 │   └── workflows/
+│       ├── codecheck.yaml
+│       ├── deploy_docs.yaml
 │       └── tests.yaml
+├── app/
+│   ├── __init__.py
+│   ├── backend_api.py
+│   ├── backend_requirements.txt
+│   ├── frontend.py
+│   └── frontend_requirements.txt
 ├── configs/                  # Configuration files
 ├── data/                     # Data directory
-│   ├── processed
+│   ├── processed            
 │   └── raw
 ├── dockerfiles/              # Dockerfiles
 │   ├── api.Dockerfile
+│   ├── frontend.Dockerfile
 │   └── train.Dockerfile
 ├── docs/                     # Documentation
+│   ├── README.md
 │   ├── mkdocs.yml
 │   └── source/
+│       ├── my_api.md
 │       └── index.md
 ├── models/                   # Trained models
 ├── notebooks/                # Jupyter notebooks
 ├── reports/                  # Reports
+│   ├── README.md
+│   ├── report.py
+│   ├── profiling/
 │   └── figures/
 ├── src/                      # Source code
-│   ├── project_name/
-│   │   ├── __init__.py
-│   │   ├── api.py
-│   │   ├── data.py
-│   │   ├── evaluate.py
-│   │   ├── models.py
-│   │   ├── train.py
-│   │   └── visualize.py
+│   ├── utils/
+│       ├── data_robust_test.py
+│       └── logger.py
+│   └── quick_draw/
+│       ├── __init__.py
+│       ├── api.py
+│       ├── data.py
+│       ├── evaluate.py
+│       ├── models.py
+│       ├── train.py
+│       └── visualize.py
 └── tests/                    # Tests
 │   ├── __init__.py
+│   ├── load_test_api.py      # locust
 │   ├── test_api.py
 │   ├── test_data.py
 │   └── test_model.py
+├── .dvcignore
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── LICENSE
+├── cloudbuild.yaml
+├── data.dvc
 ├── pyproject.toml            # Python project file
 ├── README.md                 # Project README
 ├── requirements.txt          # Project requirements
