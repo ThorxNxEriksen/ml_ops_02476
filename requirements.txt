@@ -19,7 +19,7 @@ python-multipart==0.0.20
 # API testing
 pytest==8.3.4
 httpx==0.28.1
-locust==2.32.6
+locust==2.32.8
 fastapi==0.115.6
 
 # Hugging Face Integration
