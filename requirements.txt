@@ -9,7 +9,7 @@ timm==1.0.13
 quickdraw==1.0.0
 
 # Experiment Tracking and Logging
-wandb==0.19.3
+wandb==0.19.5
 loguru==0.7.3
 
 # API Development
